@@ -1,0 +1,76 @@
+version: "3.9"
+services:
+  # php-apache:
+  #   platform: linux/x86_64
+  #   image: php:7.3-apache
+  #   ports:
+  #     - "8051:80"
+  #   # build: './_docker/php'
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   volumes:
+  #     - ./silap:/var/www/html
+  #     # - ./_docker/php_ini:/usr/local/etc/php
+  #   links:
+  #     - mysql
+  # php-5:
+  #   platform: linux/x86_64
+  #   image: php:5.6-apache
+  #   ports:
+  #     - "8053:80"
+  #   # build: './_docker/php'
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   volumes:
+  #     - ./_bahan/simkemiskinan/site/:/var/www/html
+  #     # - ./_docker/php_ini:/usr/local/etc/php
+      
+  #   links:
+  #     - mysql
+  mysql:
+    platform: linux/x86_64
+    image: mysql:5.7
+    ports:
+      - "8064:3306"
+    build: './_docker/mysql'
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "rahasiakominfo"
+      MYSQL_DATABASE: "my-admin-ci-4"
+    volumes:
+      - ./_docker/volume_mysql:/var/lib/mysql
+  php-ci4:
+    image: docker.io/bitnami/codeigniter:4
+    platform: linux/x86_64
+    ports:
+      - '8063:8000'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - CODEIGNITER_DATABASE_HOST=mariadb
+      - CODEIGNITER_DATABASE_PORT_NUMBER=3306
+      - CODEIGNITER_DATABASE_USER=myadmin
+      # - CODEIGNITER_DATABASE_PASSWORD=rahasia
+      - CODEIGNITER_DATABASE_NAME=my-admin-ci-4
+    volumes:
+      - ./:/app/myapp
+    # depends_on:
+    #   - mariadb
+
+  # mariadb:
+  #   image: docker.io/bitnami/mariadb:10.6
+  #   platform: linux/x86_64
+  #   ports:
+  #     - '8056:3306'
+  #   environment:
+  #     # ALLOW_EMPTY_PASSWORD is recommended only for development.
+  #     - ALLOW_EMPTY_PASSWORD=yes
+  #     - MARIADB_USER=silap
+  #     # - MARIADB_PASSWORD=rahasia
+  #     - MARIADB_DATABASE=silap
+  
+  
+  
+
+    
+volumes:
+  app:
+  db:
+
