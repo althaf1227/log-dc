@@ -22,7 +22,7 @@
 									<div class="col-xl-6">
 										<div class="auth-form">
 											<h3 class="text-start mb-4 font-w600">Login ke <?php echo setting('App.siteName'); ?></h3>
-
+											
 											<?php if (session('error') !== null) : ?>
 												<div class="alert alert-danger" role="alert"><?= session('error') ?></div>
 											<?php elseif (session('errors') !== null) : ?>
