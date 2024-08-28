@@ -9,49 +9,62 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title"><?php echo $SysForm['title']; ?></h4>
-                        <div class="btn-page">
-                            <button type="button" id="btn_tambah" class="btn btn-rounded btn-success" onclick="window.location='<?php echo site_url($Url_Ini . '/add'); ?>'">Tambah</button>
-                        </div>
                     </div>
                     <div class="card-body">
                         <?php
                         if (session()->getFlashdata('notif')) echo session()->getFlashdata('notif');
                         ?>
                         <div class="table-responsive">
-                            <table id="tbl_users" class="display" style="min-width: 845px">
+                            <table id="tbl_active" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Nomor Hp</th>
                                         <th>Email</th>
-                                        <th>Username</th>
-                                        <th>Aktif</th>
-                                        <th>Last Active</th>
-                                        <th>Aksi</th>
+                                        <th>Instansi</th>
+                                        <th>Jam Masuk</th>
+                                        <th>Jam Keluar</th>
+                                        <th>Keperluan</th>
+                                        <th>Persetujuan</th>
+                                        <th>Catatan</th>
+                                        <th>Tanggal Masuk</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    if (isset($datausers)) {
+                                    if (isset($datasejarah)) {
                                         $no = 1;
-                                        foreach ($datausers as $row) {
+                                        foreach ($datasejarah as $row):
                                     ?>
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
-                                                <td><?php echo esc($row->name); ?></td>
-                                                <td><?php echo esc($row->secret); ?></td>
-                                                <td><?php echo esc($row->username); ?></td>
-                                                <td><?php echo esc($row->active); ?></td>
-                                                <td><?php echo esc($row->last_active); ?></td>
+                                                <td><?php echo esc($row['LogNama']); ?></td>
+                                                <td><?php echo esc($row['LogNomorHp']); ?></td>
+                                                <td><?php echo esc($row['LogEmail']); ?></td>
+                                                <td><?php echo esc($row['LogInstansi']); ?></td>
+                                                <td><?php echo time($row['LogJamMasuk']); ?></td>
+                                                <td><?php echo time($row['LogJamKeluar']); ?></td>
+                                                <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
+                                                <td><?php echo esc($row['LogPersetujuan']); ?></td>
+                                                <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
+                                                <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
+                                                <td><?php echo esc($row['LogStatus']); ?></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="<?php echo site_url($Url_Ini . '/edit/' . esc($row->UsersId)); ?>" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                        <button data-id="<?php echo esc($row->UsersId); ?>" data-url="<?php echo site_url($Url_Ini . '/delete/' . esc($row->UsersId) . '?redirect_url=' . urlencode(uri_string())); ?>" class="btn btn-danger shadow btn-xs sharp btn_hapus"><i class="fa fa-trash"></i></button>
+                                                        <a href="<?php echo site_url($Url_Ini . '/' . 'edit/' . esc($row['LogId'])); ?>"
+                                                            class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                                                class="fas fa-pencil-alt"></i></a>
+                                                        <button data-id="<?php echo esc($row['LogId']); ?>"
+                                                            data-url="<?php echo site_url($Url_Ini . '/' . 'delete/' . esc($row['LogId']) . '?redirect_url=' . urlencode(uri_string())); ?>"
+                                                            class="btn btn-danger shadow btn-xs sharp btn_hapus"><i
+                                                                class="fa fa-trash"></i></button>
                                                     </div>
                                                 </td>
                                             </tr>
                                     <?php
-                                        }
+                                        endforeach;
                                     }
                                     ?>
                                 </tbody>
@@ -84,14 +97,10 @@
 
 <script>
     $(document).ready(function() {
-        $("#btn_tambah").on("click", function(e) {
-            $("#btn_tambah").prop("disabled", true);
-            e.preventDefault();
-        });
-        $('#tbl_users').DataTable({
+        $('#tbl_active').DataTable({
             paging: false
         });
-        $("#tbl_users").on("click", ".btn_hapus", function(e) {
+        $("#tbl_active").on("click", ".btn_hapus", function(e) {
             var url = $(this).data('url');
             var id = $(this).data('id');
             Swal.fire({
