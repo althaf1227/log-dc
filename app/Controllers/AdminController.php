@@ -65,7 +65,8 @@ abstract class AdminController extends Controller
 
         $this->ShieldAuthGroupUsersModel = new \App\Models\ShieldAuthGroupUsersModel();
         $this->ShieldAuthPermissionUsersModel = new \App\Models\ShieldAuthPermissionUsersModel();
-
+        
+        $this->activemodel = new \App\Models\ActiveModel();
 
         $user = auth()->user();
         $user_id = $user->id;

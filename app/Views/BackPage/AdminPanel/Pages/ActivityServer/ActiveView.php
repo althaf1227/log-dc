@@ -30,43 +30,55 @@
                                         <th>Catatan</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Status</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    if (isset($datasejarah)) {
+                                    if (isset($DataActive)) {
                                         $no = 1;
-                                        foreach ($datasejarah as $row):
-                                    ?>
-                                            <tr>
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo esc($row['LogNama']); ?></td>
-                                                <td><?php echo esc($row['LogNomorHp']); ?></td>
-                                                <td><?php echo esc($row['LogEmail']); ?></td>
-                                                <td><?php echo esc($row['LogInstansi']); ?></td>
-                                                <td><?php echo time($row['LogJamMasuk']); ?></td>
-                                                <td><?php echo time($row['LogJamKeluar']); ?></td>
-                                                <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
-                                                <td><?php echo esc($row['LogPersetujuan']); ?></td>
-                                                <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
-                                                <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
-                                                <td><?php echo esc($row['LogStatus']); ?></td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="<?php echo site_url($Url_Ini . '/' . 'edit/' . esc($row['LogId'])); ?>"
-                                                            class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                                class="fas fa-pencil-alt"></i></a>
-                                                        <button data-id="<?php echo esc($row['LogId']); ?>"
-                                                            data-url="<?php echo site_url($Url_Ini . '/' . 'delete/' . esc($row['LogId']) . '?redirect_url=' . urlencode(uri_string())); ?>"
-                                                            class="btn btn-danger shadow btn-xs sharp btn_hapus"><i
-                                                                class="fa fa-trash"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                    <?php
+                                        foreach ($DataActive as $row):
+                                    ?><?php
+                                            // Menentukan kelas berdasarkan status
+                                            $statusClass = '';
+                                            switch ($row['LogStatus']) {
+                                                case 'request':
+                                                    $statusClass = 'status-request';
+                                                    break;
+                                                case 'in process':
+                                                    $statusClass = 'status-in-process';
+                                                    break;
+                                            }
+                                        ?>
+                                    <tr >
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo esc($row['LogNama']); ?></td>
+                                        <td><?php echo esc($row['LogNomorHp']); ?></td>
+                                        <td><?php echo esc($row['LogEmail']); ?></td>
+                                        <td><?php echo esc($row['LogInstansi']); ?></td>
+                                        <td><?php echo date("H:i:s", strtotime($row['LogJamMasuk'])); ?></td>
+                                        <td><?php echo date("H:i:s", strtotime($row['LogJamKeluar'])); ?></td>
+                                        <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
+                                        <td><?php echo esc($row['LogPersetujuan']); ?></td>
+                                        <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
+                                        <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
+                                        <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="<?php echo site_url($Url_Ini . '/' . 'edit/' . esc($row['LogId'])); ?>"
+                                                    class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                                <button data-id="<?php echo esc($row['LogId']); ?>"
+                                                    data-url="<?php echo site_url($Url_Ini . '/' . 'delete/' . esc($row['LogId']) . '?redirect_url=' . urlencode(uri_string())); ?>"
+                                                    class="btn btn-danger shadow btn-xs sharp btn_hapus"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            <?php
                                         endforeach;
                                     }
-                                    ?>
+                            ?>
                                 </tbody>
                             </table>
                         </div>
@@ -94,6 +106,20 @@
 <?php echo $this->endSection(); ?>
 
 <?php echo $this->section('content_js_custom'); ?>
+
+<style>
+    .status-request {
+        color: #f97026;
+        font-weight: bold;
+        /* Warna merah muda */
+    }
+
+    .status-in-process {
+        color: #4578ff;
+        font-weight: bold;
+        /* Warna kuning muda */
+    }
+</style>
 
 <script>
     $(document).ready(function() {

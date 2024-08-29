@@ -33,10 +33,11 @@ class Users extends AdminController
             'title' => 'Tambah ' . $this->_form,
         ];
         $data['operation'] = 'add';
-        file_exists(WRITEPATH . "myadmin/group.json") === true ? $datagroup = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true) : $datagroup = null;
-        $data['datagroup'] = is_null($datagroup) === false ? array_keys($datagroup) : null;
-        file_exists(WRITEPATH . "myadmin/permission.json") === true ? $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $datapermission = null;
-        $data['datapermission'] = is_null($datapermission) === false ? array_keys($datapermission) : null;
+        $datagroup = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true);
+        $data['datagroup'] = array_keys($datagroup);
+        $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true);
+        $data['datapermission'] = array_keys($datapermission);
+        // dd($data['datapermission']);
         echo view('BackPage/AdminPanel/Pages/UserManagement/Users/UsersFormView', $data);
     }
 
@@ -71,10 +72,12 @@ class Users extends AdminController
 
     public function getDelete($id)
     {
-        if (is_null($id) || is_numeric($id) == false) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        if (is_null($id) || is_numeric($id) == false)
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         $users = auth()->getProvider();
         $user = $users->findById($id);
-        if (is_null($user)) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        if (is_null($user))
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         $delete = $users->delete($user->id, true);
         if ($delete === true) {
             session()->setFlashdata('notif', '<div class="alert alert-success solid"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg><strong>Hapus Berhasil</strong>! Data berhasil dihapus</div>');
@@ -86,13 +89,14 @@ class Users extends AdminController
 
     public function getEdit($id)
     {
-        if (is_null($id) || is_numeric($id) == false) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        if (is_null($id) || is_numeric($id) == false)
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         $users = auth()->getProvider();
         $user = $users->findById($id);
         $user_identity = $user->getIdentity('all');
         $user_group = $user->getGroups();
         $user_permission = $user->getPermissions();
-        // dd($user_group);
+
         $data['Url_Ini'] = $this->_Url_Ini;
         $data['title'] = 'Edit ' . $this->_form;
         $data['SysVar'] = $this->SysVar;
@@ -101,17 +105,15 @@ class Users extends AdminController
             'title' => 'Edit ' . $this->_form,
         ];
         $data['operation'] = 'edit';
-        
         $data['user'] = $user;
         $data['user_identity'] = $user_identity;
         $data['user_group'] = $user_group;
         $data['user_permission'] = $user_permission;
-        $data['users_detail'] = auth()->user();
-
-        file_exists(WRITEPATH . "myadmin/group.json") === true ? $datagroup = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true) : $datagroup = null;
-        $data['datagroup'] = is_null($datagroup) === false ? array_keys($datagroup) : null;
-        file_exists(WRITEPATH . "myadmin/permission.json") === true ? $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $datapermission = null;
-        $data['datapermission'] = is_null($datapermission) === false ? array_keys($datapermission) : null;
+        // dd($data['user_permission']);
+        $datagroup = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true);
+        $data['datagroup'] = array_keys($datagroup);
+        $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true);
+        $data['datapermission'] = array_keys($datapermission);
         echo view('BackPage/AdminPanel/Pages/UserManagement/Users/UsersFormView', $data);
     }
 
@@ -159,51 +161,7 @@ class Users extends AdminController
         $data['datausers'] = $datausers;
         echo view('BackPage/AdminPanel/Pages/UserManagement/Users/UsersView', $data);
     }
-    public function postIndex()
-    {
-        $request = \Config\Services::request();
-        if ($request->isAJAX() === false) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        $validation = [
-            'groups' => 'required',
-            'key' => 'required',
-        ];
 
-        if (!$this->validate($validation)) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        if ($request->getPost('key') === "getAjaxPermissionUsers") {
-            $group_select = $this->request->getPost('groups'); // Ini adalah array input grup
-            $auth_group_users_results = [];
-
-            // Dapatkan semua pengguna dalam grup yang dipilih
-            foreach ($group_select as $group) {
-                $auth_group_users = $this->ShieldAuthGroupUsersModel->where('group', $group)->findAll();
-                $auth_group_users_results = array_merge($auth_group_users_results, $auth_group_users);
-            }
-            $auth_permission_users_results = [];
-
-            // Dapatkan semua permission dari pengguna yang ditemukan
-            foreach ($auth_group_users_results as $results_group_users) {
-                $permission_user = $this->ShieldAuthPermissionUsersModel->where('user_id', $results_group_users->user_id)->findAll();
-                $auth_permission_users_results = array_merge($auth_permission_users_results, $permission_user);
-            }
-
-            // Mengumpulkan permission unik dan mengubahnya menjadi format JSON yang sesuai untuk digunakan oleh JavaScript
-            $permissions = [];
-            foreach ($auth_permission_users_results as $permission) {
-                $permissions[] = [
-                    'value' => $permission->permission,
-                    'label' => $permission->permission
-                ];
-            }
-
-            // Menghapus duplikat permission berdasarkan nama
-            $permissions = array_unique($permissions, SORT_REGULAR);
-
-            // Mengirimkan respons JSON menggunakan setJSON()
-            return $this->response->setJSON($permissions);
-        } else {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        }
-    }
     private function _save(string $mode): array
     {
         $request = \Config\Services::request();
@@ -256,62 +214,7 @@ class Users extends AdminController
             $msg = '<strong>Gagal</strong>! ' . $this->validator->listErrors() . '';
             return array('success' => false, 'status_code' => 0, 'redirect_to' => $urlprev, 'message' => $msg);
         }
-        $apply_all_users = $this->request->getPost('apply_user');
-        if ($apply_all_users != 0) {
-            // Mendapatkan semua pengguna dalam grup
-            $auth_group_users_results = $this->ShieldAuthGroupUsersModel->where('group', $request->getPost('slc_group'))->findAll();
-            // Mengambil semua izin pengguna dari hasil pengguna yang ditemukan
-            $auth_permission_users_results = [];
-            foreach ($auth_group_users_results as $results_group_users) {
-                $permission_user = $this->ShieldAuthPermissionUsersModel->where('user_id', $results_group_users->user_id)->findAll();
-                $auth_permission_users_results = array_merge($auth_permission_users_results, $permission_user);
-            }
-            // Mendapatkan semua izin yang unik
-            $permissions = [];
-            foreach ($auth_permission_users_results as $permission) {
-                $permissions[] = [
-                    'id' => $permission->id,
-                    'user_id' => $permission->user_id,
-                    'permission' => $permission->permission
-                ];
-            }
-            $permissions = array_unique($permissions, SORT_REGULAR);
-            // Menyiapkan izin untuk semua pengguna yang ada
-            $new_permissions = [];
-            foreach ($auth_group_users_results as $user) {
-                foreach ($permissions as $permission) {
-                    $new_permissions[] = [
-                        'user_id' => $user->user_id,
-                        'permission' => $permission['permission']
-                    ];
-                }
-            }
-            // Mengambil izin yang sudah ada di database
-            $existing_permissions = $this->ShieldAuthPermissionUsersModel->findAll();
 
-            foreach ($new_permissions as $new_permission) {
-                $exists = false;
-
-                foreach ($existing_permissions as $existing_permission) {
-                    if (
-                        $existing_permission->user_id == $new_permission['user_id'] &&
-                        $existing_permission->permission == $new_permission['permission']
-                    ) {
-                        $exists = true;
-                        $update_data = [
-                            'id' => $existing_permission->id,
-                            'user_id' => $new_permission['user_id'],
-                            'permission' => $new_permission['permission']
-                        ];
-                        $this->ShieldAuthPermissionUsersModel->save($update_data);
-                        break;
-                    }
-                }
-                if (!$exists) {
-                    $this->ShieldAuthPermissionUsersModel->save($new_permission);
-                }
-            }
-        }
         if ($mode === "add") {
             $validation = [
                 'txt_password' => [
@@ -333,14 +236,15 @@ class Users extends AdminController
                 $msg = '<strong>Gagal</strong>! ' . $this->validator->listErrors() . '';
                 return array('success' => false, 'status_code' => 0, 'redirect_to' => $urlprev, 'message' => $msg);
             }
+
             // Read the JSON file  
-            file_exists(WRITEPATH . "myadmin/group.json") === true ? $groups_file = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true) : $groups_file = null;
+            $groups_file = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true);
             config('AuthGroups')->groups = $groups_file;
-            file_exists(WRITEPATH . "myadmin/permission.json") === true ? $permissions_file = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $permissions_file = null;
+            $permissions_file = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true);
             config('AuthGroups')->permissions = $permissions_file;
 
-
             $users = auth()->getProvider();
+
             $user = new User([
                 'username' => trim($request->getPost('txt_username')),
                 'email' => trim($request->getPost('txt_email')),
@@ -370,9 +274,8 @@ class Users extends AdminController
 
             $user->activate();
 
-
-
             return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
+
         } else if ($mode === "edit") {
             $validation = [
                 'id' => [
@@ -389,9 +292,9 @@ class Users extends AdminController
             }
 
             // Read the JSON file  
-            file_exists(WRITEPATH . "myadmin/group.json") === true ? $groups_file = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true) : $groups_file = null;
+            $groups_file = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true);
             config('AuthGroups')->groups = $groups_file;
-            file_exists(WRITEPATH . "myadmin/permission.json") === true ? $permissions_file = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $permissions_file = null;
+            $permissions_file = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true);
             config('AuthGroups')->permissions = $permissions_file;
 
             $user_id = trim($request->getPost('id'));
@@ -403,19 +306,11 @@ class Users extends AdminController
             $user_group = $user->getGroups();
             $user_permission = $user->getPermissions();
 
-            $password = is_null($request->getPost('txt_password')) === false && $request->getPost('txt_password') != "";
-            if (is_null($password) === false) {
-                $user->fill([
-                    'username' => trim($request->getPost('txt_username')),
-                    'email' => trim($request->getPost('txt_email')),
-                    'password' => trim($request->getPost('txt_password')),
-                ]);
-            } else {
-                $user->fill([
-                    'username' => trim($request->getPost('txt_username')),
-                    'email' => trim($request->getPost('txt_email')),
-                ]);
-            }
+            $user->fill([
+                'username' => trim($request->getPost('txt_username')),
+                'email' => trim($request->getPost('txt_email')),
+                'password' => trim($request->getPost('txt_password')),
+            ]);
             $users->save($user);
 
             $UserIdentityModel = model('UserIdentityModel');
@@ -433,12 +328,6 @@ class Users extends AdminController
                 }
             }
 
-            foreach ($user_group as $us_group) {
-                if (in_array($us_group, $groups) === false) {
-                    $user->removeGroup($us_group);
-                }
-            }
-
             $permissions = $request->getPost('slc_permission');
             foreach ($permissions as $permission) {
                 if (in_array($permission, $user_permission) === false) {
@@ -453,6 +342,7 @@ class Users extends AdminController
             }
 
             return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
+
         }
     }
 }
