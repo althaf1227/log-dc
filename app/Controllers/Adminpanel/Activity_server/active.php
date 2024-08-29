@@ -30,12 +30,12 @@ class active extends AdminController
             'title' => 'Data ' . $this->_title,
             'form' => $this->_form,
         ];
-        $activemodel = model('ActiveModel');
+        $Logmodel = model('LogModel');
         // Mendapatkan data dengan status 'request'
-        $dataRequest = $activemodel->where('LogStatus', 'request')->orderBy('LogInsert', 'ASC')->get(10)->getResultArray();
-        $dataInProcess = $activemodel->where('LogStatus', 'in process')->orderBy('LogInsert', 'ASC')->get(10)->getResultArray();
+        $dataRequest = $Logmodel->where('LogStatus', 'request')->orderBy('LogInsert', 'ASC')->get(10)->getResultArray();
+        $dataInProcess = $Logmodel->where('LogStatus', 'in process')->orderBy('LogInsert', 'ASC')->get(10)->getResultArray();
         $dataActive = array_merge($dataRequest, $dataInProcess);
         $data['DataActive'] = $dataActive;
-        echo view('BackPage/AdminPanel/Pages/ActivityServer/ActiveView', $data);
+        echo view('BackPage/AdminPanel/Pages/ActivityServer/Active/ActiveView', $data);
     }
 }

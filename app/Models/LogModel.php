@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ActiveModel extends Model
+class LogModel extends Model
 {
     protected $table = "Log_masuk";
     protected $primaryKey = 'LogId';
