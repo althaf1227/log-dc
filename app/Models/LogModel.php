@@ -25,4 +25,10 @@ class LogModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'LogInsert';
     protected $updatedField = 'LogUpdate';
+
+    public function getStatusEnum()
+    {
+        
+        return ['request', 'in process', 'completed'];
+    }
 }

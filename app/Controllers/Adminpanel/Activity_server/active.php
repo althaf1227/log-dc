@@ -18,7 +18,7 @@ class active extends AdminController
      */
 
     private $_Url_Ini = "adminpanel/activity-server/active";
-    private $_title = "Active";
+    private $_title = "(Active)";
     private $_form = "Active";
 
     public function getindex()
@@ -27,7 +27,7 @@ class active extends AdminController
         $data['title'] = $this->_form;
         $data['SysVar'] = $this->SysVar;
         $data['SysForm'] = [
-            'title' => 'Data ' . $this->_title,
+            'title' => 'Data Pengunjung Server ' . $this->_title,
             'form' => $this->_form,
         ];
         $Logmodel = model('LogModel');

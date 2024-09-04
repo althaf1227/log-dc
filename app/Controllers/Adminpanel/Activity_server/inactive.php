@@ -18,8 +18,8 @@ class Inactive extends AdminController
      */
 
     private $_Url_Ini = "adminpanel/activity-server/inactive";
-    private $_title = "Inactive";
-    private $_form = "Inactive";
+    private $_title = "(Selesai)";
+    private $_form = "Selesai";
 
     public function getindex()
     {
@@ -27,7 +27,7 @@ class Inactive extends AdminController
         $data['title'] = $this->_form;
         $data['SysVar'] = $this->SysVar;
         $data['SysForm'] = [
-            'title' => 'Data ' . $this->_title,
+            'title' => 'Data Pengunjung Server ' . $this->_title,
             'form' => $this->_form,
         ];
         $Logmodel = model('LogModel');
@@ -35,5 +35,25 @@ class Inactive extends AdminController
         $dataInactive = array_merge($dataCompleted);
         $data['DataInactive'] = $dataInactive;
         echo view('BackPage/AdminPanel/Pages/ActivityServer/InActive/InActiveView', $data);
+    }
+    public function getEdit($id)
+    {
+        if (is_null($id) || is_numeric($id) == false)
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        $data['Url_Ini'] = $this->_Url_Ini;
+        $data['title'] = 'Edit ' . $this->_form;
+        $data['SysVar'] = $this->SysVar;
+        $data['SysForm'] = [
+            'form' => $this->_form,
+            'title' => 'Edit ' . $this->_form,
+        ];
+        $data['operation'] = 'edit';
+
+        $Logmodel = model('LogModel');
+        $Inactive = $Logmodel->find($id);
+        $data['statusOptions'] = $Logmodel->getStatusEnum();
+        $data['inactive'] = $Inactive;
+
+        echo view('BackPage/AdminPanel/Pages/ActivityServer/ActivityFormView', $data);
     }
 }

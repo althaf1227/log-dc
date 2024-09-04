@@ -28,7 +28,7 @@
                                         <th>Keperluan</th>
                                         <th>Persetujuan</th>
                                         <th>Catatan</th>
-                                        <th>Tanggal Masuk</th>
+                                        <th>Tanggal Aktivitas</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
