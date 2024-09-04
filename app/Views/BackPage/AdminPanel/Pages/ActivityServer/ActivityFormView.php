@@ -131,7 +131,7 @@
                                                                             if (isset($operation) && isset($activity) && $operation == "edit")
                                                                                 echo esc($activity['LogPersetujuan']);
                                                                         } ?></textarea>
-                                            <div class="invalid-feedback">Masukan keperluan anda.</div>
+                                            <div class="invalid-feedback">Masukan Keperluan anda.</div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
