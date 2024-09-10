@@ -21,7 +21,7 @@ $users_menus = $MyAdminUsersMenuModel->getMenuForUser($user);
 					</a>
 					<ul aria-expanded="false">
 						<li><a href="<?php echo site_url('adminpanel/activity-server/active'); ?>">active</a></li>
-						<li><a href="<?php echo site_url('adminpanel/activity-server/inactive'); ?>">inactive</a></li>
+						<li><a href="<?php echo site_url('adminpanel/activity-server/inactive'); ?>">Completed</a></li>
 					</ul>
 				</li>
 			<?php } ?>

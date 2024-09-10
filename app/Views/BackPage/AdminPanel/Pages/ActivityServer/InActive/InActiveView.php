@@ -30,7 +30,6 @@
                                         <th>Catatan</th>
                                         <th>Tanggal Aktivitas</th>
                                         <th>Status</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,7 +38,6 @@
                                         $no = 1;
                                         foreach ($DataInactive as $row):
                                     ?><?php
-                                            // Menentukan kelas berdasarkan status
                                             $statusClass = '';
                                             switch ($row['LogStatus']) {
                                                 case 'completed':
@@ -66,17 +64,6 @@
                                         <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
                                         <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <a href="<?php echo site_url($Url_Ini . '/' . 'edit/' . esc($row['LogId'])); ?>"
-                                                    class="btn btn-primary shadow btn-xs sharp me-1"><i
-                                                        class="fas fa-pencil-alt"></i></a>
-                                                <button data-id="<?php echo esc($row['LogId']); ?>"
-                                                    data-url="<?php echo site_url($Url_Ini . '/' . 'delete/' . esc($row['LogId']) . '?redirect_url=' . urlencode(uri_string())); ?>"
-                                                    class="btn btn-danger shadow btn-xs sharp btn_hapus"><i
-                                                        class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
                                     </tr>
                             <?php
                                         endforeach;

@@ -39,7 +39,6 @@
                                         $no = 1;
                                         foreach ($DataActive as $row):
                                     ?><?php
-                                            // Menentukan kelas berdasarkan status
                                             $statusClass = '';
                                             switch ($row['LogStatus']) {
                                                 case 'request':

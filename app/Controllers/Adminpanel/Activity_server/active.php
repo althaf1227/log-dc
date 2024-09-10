@@ -209,9 +209,9 @@ class active extends AdminController
                     $dataset['LogJamKeluar'] = $jamKeluar;
                 }
 
-                dd($dataset);
-                // $Logmodel = model('LogModel');
-                // $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
+                // dd($dataset);
+                $Logmodel = model('LogModel');
+                $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
                 
 
                 return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
