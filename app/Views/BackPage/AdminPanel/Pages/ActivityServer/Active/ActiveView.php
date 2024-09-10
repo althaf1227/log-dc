@@ -50,16 +50,22 @@
                                                     break;
                                             }
                                         ?>
-                                    <tr >
+                                    <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo esc($row['LogNama']); ?></td>
                                         <td><?php echo esc($row['LogNomorHp']); ?></td>
                                         <td><?php echo esc($row['LogEmail']); ?></td>
                                         <td><?php echo esc($row['LogInstansi']); ?></td>
                                         <td><?php echo date("H:i:s", strtotime($row['LogJamMasuk'])); ?></td>
-                                        <td><?php echo date("H:i:s", strtotime($row['LogJamKeluar'])); ?></td>
+                                        <td><?php
+                                            if (!empty($row['LogJamKeluar'])) {
+                                                echo date("H:i:s", strtotime($row['LogJamKeluar']));
+                                            } else {
+                                                echo ''; 
+                                            }
+                                            ?></td>
                                         <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
-                                        <td><?php echo esc($row['LogPersetujuan']); ?></td>
+                                        <td class="<?= $row['LogPersetujuan'] == 1 ? 'setuju' : 'tidak'; ?>"><?php echo esc($row['LogPersetujuan'] == 1 ? 'Disetujui' : 'Tidak Disetujui'); ?></td>
                                         <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
                                         <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
@@ -118,6 +124,16 @@
         color: #4578ff;
         font-weight: bold;
         /* Warna kuning muda */
+    }
+
+    .setuju {
+        color: #42bc83;
+        font-weight: bold;
+    }
+
+    .tidak {
+        color: red;
+        font-weight: bold;
     }
 </style>
 

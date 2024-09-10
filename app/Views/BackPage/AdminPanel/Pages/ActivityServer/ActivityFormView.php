@@ -35,12 +35,12 @@
                             <?php if (isset($operation) && $operation == "add") { ?>
                                 <form id="form_edit" method="post" action="<?php echo site_url($Url_Ini . '/add'); ?>"
                                     class="needs-validation" enctype="multipart/form-data" novalidate>
-                                <?php } else if (isset($operation) && isset($activity) && $operation == "edit") { ?>
+                                <?php } else if (isset($operation) && isset($Log) && $operation == "edit") { ?>
                                     <form id="form_edit" method="post"
                                         action="<?php echo site_url($Url_Ini . '/edit'); ?>" class="needs-validation"
                                         enctype="multipart/form-data" novalidate>
-                                        <input type="hidden" name="sejarah_id"
-                                            value="<?php echo esc($activity['LogId']); ?>" required />
+                                        <input type="hidden" name="Log_Id"
+                                            value="<?php echo esc($Log['LogId']); ?>" required />
                                     <?php } ?>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetNama">Nama Pengunjung<span class="text-danger">*</span></label>
@@ -49,8 +49,8 @@
                                                 name="SetNama" value="<?php if (is_null(old('SetNama')) == false) {
                                                                             echo old('SetNama');
                                                                         } else {
-                                                                            if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                echo esc($activity['LogNama']);
+                                                                            if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                echo esc($Log['LogNama']);
                                                                         } ?>" placeholder="Masukan Nama.." required />
                                             <div class="invalid-feedback">Masukan Nama.</div>
                                         </div>
@@ -62,8 +62,8 @@
                                                 name="SetNomorHp" value="<?php if (is_null(old('SetNomorHp')) == false) {
                                                                                 echo old('SetNomorHp');
                                                                             } else {
-                                                                                if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                    echo esc($activity['LogNomorHp']);
+                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                    echo esc($Log['LogNomorHp']);
                                                                             } ?>" placeholder="Masukan Nomor Handphone.." required />
                                             <div class="invalid-feedback">Masukan Nomor Handphone.</div>
                                         </div>
@@ -75,8 +75,8 @@
                                                 name="SetEmail" value="<?php if (is_null(old('SetEmail')) == false) {
                                                                             echo old('SetEmail');
                                                                         } else {
-                                                                            if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                echo esc($activity['LogEmail']);
+                                                                            if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                echo esc($Log['LogEmail']);
                                                                         } ?>" placeholder="Masukan Email.." required />
                                             <div class="invalid-feedback">Masukan Email.</div>
                                         </div>
@@ -88,8 +88,8 @@
                                                 name="SetInstansi" value="<?php if (is_null(old('SetInstansi')) == false) {
                                                                                 echo old('SetInstansi');
                                                                             } else {
-                                                                                if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                    echo esc($activity['LogInstansi']);
+                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                    echo esc($Log['LogInstansi']);
                                                                             } ?>" placeholder="Masukan Instansi.." required />
                                             <div class="invalid-feedback">Masukan Instansi.</div>
                                         </div>
@@ -101,8 +101,8 @@
                                                 name="SetJamMasuk" value="<?php if (is_null(old('SetJamMasuk')) == false) {
                                                                                 echo old('SetJamMasuk');
                                                                             } else {
-                                                                                if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                    echo esc($activity['LogJamMasuk']);
+                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                    echo esc($Log['LogJamMasuk']);
                                                                             } ?>" placeholder="Masukan Jam masuk .." required />
                                             <div class="invalid-feedback">Masukan Jam masuk.</div>
                                         </div>
@@ -114,23 +114,22 @@
                                                 name="SetJamkeluar" value="<?php if (is_null(old('SetJamkeluar')) == false) {
                                                                                 echo old('SetJamkeluar');
                                                                             } else {
-                                                                                if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                    echo esc($activity['LogJamkeluar']);
-                                                                            } ?>" placeholder="Masukan Jam keluar .." required />
-                                            <div class="invalid-feedback">Masukan Jam keluar.</div>
+                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                    echo esc($Log['LogJamKeluar']);
+                                                                            } ?>" placeholder="Masukan Jam keluar .." />
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetPersetujuan">Keperluan Pengunjung<span
+                                        <label class="col-sm-3 col-form-label" for="SetKeperluan">Keperluan Pengunjung<span
                                                 class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <textarea id="mytextarea"
-                                                name="SetPersetujuan"><?php if (is_null(old('SetPersetujuan')) == false) {
-                                                                            echo old('SetPersetujuan');
-                                                                        } else {
-                                                                            if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                echo esc($activity['LogPersetujuan']);
-                                                                        } ?></textarea>
+                                                name="SetKeperluan"><?php if (is_null(old('SetKeperluan')) == false) {
+                                                                        echo old('SetKeperluan');
+                                                                    } else {
+                                                                        if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                            echo esc($Log['LogKeperluan']);
+                                                                    } ?></textarea>
                                             <div class="invalid-feedback">Masukan Keperluan anda.</div>
                                         </div>
                                     </div>
@@ -142,40 +141,31 @@
                                                 name="SetCatatan"><?php if (is_null(old('SetCatatan')) == false) {
                                                                         echo old('SetCatatan');
                                                                     } else {
-                                                                        if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                            echo esc($activity['LogCatatan']);
+                                                                        if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                            echo esc($Log['LogCatatan']);
                                                                     } ?></textarea>
-                                            <div class="invalid-feedback">Masukan Catatan.</div>
+                                            <div class="invalid-feedback">Masukan Catatan anda.</div>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input type="checkbox" class="form-check-input" id="SetPersetujuan" name="SetPersetujuan" required />
+                                            <input type="checkbox" class="form-check-input" id="SetPersetujuan" name="SetPersetujuan"
+                                                <?= isset($Log['LogPersetujuan']) && $Log['LogPersetujuan'] == 1 ? 'checked' : '' ?> />
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetTanggal">Tanggal Pengunjungan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <input type="time" class="form-control" id="SetTanggal"
+                                            <input type="date" class="form-control" id="SetTanggal"
                                                 name="SetTanggal" value="<?php if (is_null(old('SetTanggal')) == false) {
                                                                                 echo old('SetTanggal');
                                                                             } else {
-                                                                                if (isset($operation) && isset($activity) && $operation == "edit")
-                                                                                    echo esc($activity['LogTanggal']);
+                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
+                                                                                    echo esc($Log['LogTanggal']);
                                                                             } ?>" placeholder="Masukan Tanggal Pengunjungan .." required />
                                             <div class="invalid-feedback">Masukan Tanggal Pengunjungan.</div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetStatus">Status Pengunjungan<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <select id="SetStatus" name="SetStatus" class="form-control">
-                                                <?php foreach ($statusOptions as $status): ?>
-                                                    <option value="<?= $status ?>"><?= ucfirst($status) ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -278,176 +268,6 @@
         height: 300,
         license_key: 'gpl'
     });
-
-    function previewGambar() {
-        const preview = document.getElementById('preview-gambar');
-        const input = document.getElementById('gambar-input');
-        const files = input.files;
-        const errorMessage = document.getElementById('error-message-gambar');
-
-        // Hapus semua thumbnail yang ada
-        while (preview.firstChild) {
-            preview.removeChild(preview.firstChild);
-        }
-
-        // Reset error message
-        errorMessage.textContent = '';
-
-        // Loop melalui setiap file yang diunggah
-        for (const file of files) {
-            if (!file.type.match('image.*')) {
-                errorMessage.textContent = 'File yang diunggah harus berupa gambar (jpg, png, jpeg).';
-                input.value = ''; // Reset input file
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = 'thumbnail';
-                thumbnail.setAttribute('data-name', file.name); // Menambahkan atribut data untuk nama file
-
-                // Gambar
-                const img = new Image();
-                img.src = event.target.result;
-                thumbnail.appendChild(img);
-
-                const removeBtn = document.createElement('button');
-                removeBtn.classList.add('remove-btn');
-                removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                removeBtn.onclick = () => {
-                    thumbnail.remove();
-                    // Hapus elemen input file dari pratinjau
-                    document.querySelector(`input[data-name="${file.name}"]`).remove();
-                };
-
-                thumbnail.appendChild(removeBtn);
-                preview.appendChild(thumbnail);
-
-                // Buat elemen input file baru
-                const fileInputClone = input.cloneNode();
-                fileInputClone.removeAttribute('id'); // Hapus ID agar tidak duplikat
-                fileInputClone.style.display = 'none'; // Sembunyikan elemen input
-                fileInputClone.setAttribute('data-name', file.name); // Set atribut data-name
-
-                // Set nilai file input clone
-                const dt = new DataTransfer();
-                dt.items.add(file);
-                fileInputClone.files = dt.files;
-
-                // Tambahkan elemen input file baru ke pratinjau
-                preview.appendChild(fileInputClone);
-            };
-            reader.readAsDataURL(file);
-        }
-
-        // Kosongkan elemen input file utama setelah memproses file
-        input.value = '';
-    }
-
-    function previewFiles() {
-        const preview = document.getElementById('preview-file');
-        const input = document.getElementById('file-input');
-        const files = input.files;
-        const errorMessage = document.getElementById('error-message-file');
-
-        // Hapus semua thumbnail yang ada
-        while (preview.firstChild) {
-            preview.removeChild(preview.firstChild);
-        }
-        errorMessage.textContent = '';
-
-        // Loop melalui setiap file yang diunggah
-        for (const file of files) {
-            if (!file.type.match('application/*')) {
-                errorMessage.textContent = 'Format file yang diunggah harus berupa gambar (pdf, docx, xlsx ,pptx )';
-                input.value = ''; // Reset input file
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = 'thumbnail';
-                thumbnail.setAttribute('data-name', file.name); // Menambahkan atribut data untuk nama file
-
-                if (file.type === 'application/pdf') {
-                    const embed = document.createElement('embed');
-                    embed.src = event.target.result;
-                    thumbnail.appendChild(embed);
-                } // DOCX, XLSX, PPTX
-                else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
-                    file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
-                    file.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
-                    const link = document.createElement('a');
-                    link.href = event.target.result;
-                    link.target = '_blank';
-
-                    const icon = document.createElement('i');
-                    let iconClass;
-                    if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                        iconClass = 'fas fa-file-word';
-                    } else if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-                        iconClass = 'fas fa-file-excel';
-                    } else if (file.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
-                        iconClass = 'fas fa-file-powerpoint';
-                    }
-                    icon.className = iconClass;
-                    icon.style.fontSize = '50px';
-                    icon.style.marginRight = '10px';
-                    icon.style.verticalAlign = 'middle'; // Optional: To align icon and text
-
-                    link.appendChild(icon);
-                    link.appendChild(document.createTextNode(` View ${file.name}`));
-                    thumbnail.appendChild(link);
-                } else {
-                    thumbnail.textContent = `Unsupported file type: ${file.name}`;
-                }
-
-                const removeBtn = document.createElement('button');
-                removeBtn.classList.add('remove-btn');
-                removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                removeBtn.onclick = () => {
-                    thumbnail.remove();
-                    // Hapus elemen input file dari pratinjau
-                    document.querySelector(`input[data-name="${file.name}"]`).remove();
-                };
-
-                thumbnail.appendChild(removeBtn);
-                preview.appendChild(thumbnail);
-
-                // Buat elemen input file baru
-                const fileInputClone = input.cloneNode();
-                fileInputClone.removeAttribute('id'); // Hapus ID agar tidak duplikat
-                fileInputClone.style.display = 'none'; // Sembunyikan elemen input
-                fileInputClone.setAttribute('data-name', file.name); // Set atribut data-name
-
-                // Set nilai file input clone
-                const dt = new DataTransfer();
-                dt.items.add(file);
-                fileInputClone.files = dt.files;
-
-                // Tambahkan elemen input file baru ke pratinjau
-                preview.appendChild(fileInputClone);
-            };
-            reader.readAsDataURL(file);
-
-        }
-        // Kosongkan elemen input file utama setelah memproses file
-        input.value = '';
-    }
-    // Fungsi untuk menghapus elemen thumbnail
-    function removeElement(element) {
-        const thumbnail = element.parentElement;
-        const fileName = thumbnail.getAttribute('data-name');
-
-        // Hapus elemen input file yang sesuai
-        const inputFile = document.querySelector(`input[data-name="${fileName}"]`);
-        if (inputFile) {
-            inputFile.remove();
-        }
-        // Hapus thumbnail
-        thumbnail.remove();
-    }
 </script>
 
 <?php echo $this->endSection(); ?>
