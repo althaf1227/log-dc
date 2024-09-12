@@ -18,7 +18,7 @@ class LogModel extends Model
         'LogJamMasuk',
         'LogJamKeluar',
         'LogPersetujuan',
-        'catatan',
+        'LogCatatan',
         'LogStatus',
     ];
 

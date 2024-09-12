@@ -42,11 +42,11 @@
                                         <input type="hidden" name="Log_Id"
                                             value="<?php echo esc($Log['LogId']); ?>" required />
                                     <?php } ?>
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetNama">Nama Pengunjung<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="SetNama"
-                                                name="SetNama" value="<?php if (is_null(old('SetNama')) == false) {
+                                                name="SetNama" value="</?php if (is_null(old('SetNama')) == false) {
                                                                             echo old('SetNama');
                                                                         } else {
                                                                             if (isset($operation) && isset($Log) && $operation == "edit")
@@ -59,7 +59,7 @@
                                         <label class="col-sm-3 col-form-label" for="SetNomorHp">Nomor Hp Pengunjung<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="SetNomorHp"
-                                                name="SetNomorHp" value="<?php if (is_null(old('SetNomorHp')) == false) {
+                                                name="SetNomorHp" value="</?php if (is_null(old('SetNomorHp')) == false) {
                                                                                 echo old('SetNomorHp');
                                                                             } else {
                                                                                 if (isset($operation) && isset($Log) && $operation == "edit")
@@ -72,7 +72,7 @@
                                         <label class="col-sm-3 col-form-label" for="SetEmail">Email Pengunjung<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="SetEmail"
-                                                name="SetEmail" value="<?php if (is_null(old('SetEmail')) == false) {
+                                                name="SetEmail" value="</?php if (is_null(old('SetEmail')) == false) {
                                                                             echo old('SetEmail');
                                                                         } else {
                                                                             if (isset($operation) && isset($Log) && $operation == "edit")
@@ -85,7 +85,7 @@
                                         <label class="col-sm-3 col-form-label" for="SetInstansi">Instansi Pengunjung<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="SetInstansi"
-                                                name="SetInstansi" value="<?php if (is_null(old('SetInstansi')) == false) {
+                                                name="SetInstansi" value="</?php if (is_null(old('SetInstansi')) == false) {
                                                                                 echo old('SetInstansi');
                                                                             } else {
                                                                                 if (isset($operation) && isset($Log) && $operation == "edit")
@@ -98,13 +98,20 @@
                                         <label class="col-sm-3 col-form-label" for="SetJamMasuk">Jam Masuk Pengunjung<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="time" class="form-control" id="SetJamMasuk"
-                                                name="SetJamMasuk" value="<?php if (is_null(old('SetJamMasuk')) == false) {
+                                                name="SetJamMasuk" value="</?php if (is_null(old('SetJamMasuk')) == false) {
                                                                                 echo old('SetJamMasuk');
                                                                             } else {
                                                                                 if (isset($operation) && isset($Log) && $operation == "edit")
                                                                                     echo esc($Log['LogJamMasuk']);
                                                                             } ?>" placeholder="Masukan Jam masuk .." required />
                                             <div class="invalid-feedback">Masukan Jam masuk.</div>
+                                        </div>
+                                    </div> -->
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="checkbox" class="form-check-input" id="SetPersetujuan" name="SetPersetujuan"
+                                                <?= isset($Log['LogPersetujuan']) && $Log['LogPersetujuan'] == 1 ? 'checked' : '' ?> />
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -119,12 +126,12 @@
                                                                             } ?>" placeholder="Masukan Jam keluar .." />
                                         </div>
                                     </div>
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetKeperluan">Keperluan Pengunjung<span
                                                 class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <textarea id="mytextarea"
-                                                name="SetKeperluan"><?php if (is_null(old('SetKeperluan')) == false) {
+                                                name="SetKeperluan"></?php if (is_null(old('SetKeperluan')) == false) {
                                                                         echo old('SetKeperluan');
                                                                     } else {
                                                                         if (isset($operation) && isset($Log) && $operation == "edit")
@@ -132,33 +139,33 @@
                                                                     } ?></textarea>
                                             <div class="invalid-feedback">Masukan Keperluan anda.</div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetCatatan">Catatan untuk pengunjung<span
-                                                class="text-denger">*</span></label>
+                                                class="text-danger">*</span></label>
                                         <div class="col-sm-9">
-                                            <textarea id="mytextarea"
+                                            <textarea id="mytextarea2"
                                                 name="SetCatatan"><?php if (is_null(old('SetCatatan')) == false) {
                                                                         echo old('SetCatatan');
                                                                     } else {
                                                                         if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                            echo esc($Log['catatan']);
+                                                                            echo esc($Log['LogCatatan']);
                                                                     } ?></textarea>
                                             <div class="invalid-feedback">Masukan Catatan anda.</div>
                                         </div>
                                     </div>
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="checkbox" class="form-check-input" id="SetPersetujuan" name="SetPersetujuan"
-                                                <?= isset($Log['LogPersetujuan']) && $Log['LogPersetujuan'] == 1 ? 'checked' : '' ?> />
+                                                </?= isset($Log['LogPersetujuan']) && $Log['LogPersetujuan'] == 1 ? 'checked' : '' ?> />
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
+                                    </div> -->
+                                    <!-- <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetTanggal">Tanggal Pengunjungan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <input type="date" class="form-control" id="SetTanggal"
-                                                name="SetTanggal" value="<?php if (is_null(old('SetTanggal')) == false) {
+                                                name="SetTanggal" value="</?php if (is_null(old('SetTanggal')) == false) {
                                                                                 echo old('SetTanggal');
                                                                             } else {
                                                                                 if (isset($operation) && isset($Log) && $operation == "edit")
@@ -166,7 +173,7 @@
                                                                             } ?>" placeholder="Masukan Tanggal Pengunjungan .." required />
                                             <div class="invalid-feedback">Masukan Tanggal Pengunjungan.</div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-3 row">
                                         <div class="col-sm-9 ms-auto">
                                             <input type="hidden" name="hid_url" value="<?php echo current_url(); ?>" />
@@ -261,6 +268,14 @@
     });
     tinymce.init({
         selector: 'textarea#mytextarea',
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code',
+        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+        menubar: 'file edit view insert format tools table help',
+        height: 300,
+        license_key: 'gpl'
+    });
+    tinymce.init({
+        selector: 'textarea#mytextarea2',
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code',
         toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
         menubar: 'file edit view insert format tools table help',

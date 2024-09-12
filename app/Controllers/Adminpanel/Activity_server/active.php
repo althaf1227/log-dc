@@ -118,41 +118,41 @@ class active extends AdminController
 
             if (
                 !$this->validate([
-                    'SetNama' => [
-                        'label' => 'Nama',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
-                    'SetNomorHp' => [
-                        'label' => 'Nomor Handphone',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
-                    'SetEmail' => [
-                        'label' => 'Email',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
-                    'SetInstansi' => [
-                        'label' => 'Instansi',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
-                    'SetJamMasuk' => [
-                        'label' => 'Jam Masuk',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
+                    // 'SetNama' => [
+                    //     'label' => 'Nama',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
+                    // 'SetNomorHp' => [
+                    //     'label' => 'Nomor Handphone',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
+                    // 'SetEmail' => [
+                    //     'label' => 'Email',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
+                    // 'SetInstansi' => [
+                    //     'label' => 'Instansi',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
+                    // 'SetJamMasuk' => [
+                    //     'label' => 'Jam Masuk',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
                     'SetCatatan' => [
                         'label' => 'catatan',
                         'rules' => 'required',
@@ -160,21 +160,21 @@ class active extends AdminController
                             'required' => '{field} harus diisi'
                         ]
                     ],
-                    'SetKeperluan' => [
-                        'label' => 'Keperluan',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
+                    // 'SetKeperluan' => [
+                    //     'label' => 'Keperluan',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ],
 
-                    'SetTanggal' => [
-                        'label' => 'Tanggal',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ]
+                    // 'SetTanggal' => [
+                    //     'label' => 'Tanggal',
+                    //     'rules' => 'required',
+                    //     'errors' => [
+                    //         'required' => '{field} harus diisi'
+                    //     ]
+                    // ]
                 ])
             ) {
                 $msg = '<strong>Gagal</strong>! ' . $this->validator->listErrors() . '';
@@ -193,16 +193,19 @@ class active extends AdminController
                     $status = 'completed';
                 }
 
+                $catatan = $request->getVar('SetCatatan');
+
+
                 $dataset = [
-                    'LogNama'        => trim($request->getPost('SetNama')),
-                    'LogNomorHp'     => trim($request->getPost('SetNomorHp')),
-                    'LogEmail'       => trim($request->getPost('SetEmail')),
-                    'LogInstansi'    => trim($request->getPost('SetInstansi')),
-                    'LogJamasuk'     => trim($request->getPost('SetJamMasuk')),
-                    'LogKeperluan'   => htmlspecialchars_decode($request->getPost('SetKeperluan')),
-                    'catatan'        => htmlspecialchars_decode($request->getPost('SetCatatan')),
+                    // 'LogNama'        => trim($request->getPost('SetNama')),
+                    // 'LogNomorHp'     => trim($request->getPost('SetNomorHp')),
+                    // 'LogEmail'       => trim($request->getPost('SetEmail')),
+                    // 'LogInstansi'    => trim($request->getPost('SetInstansi')),
+                    // 'LogJamasuk'     => trim($request->getPost('SetJamMasuk')),
+                    // 'LogKeperluan'   => htmlspecialchars_decode($request->getPost('SetKeperluan')),
+                    'LogCatatan'     => $catatan,
                     'LogPersetujuan' => $persetujuan,
-                    'LogTanggal'     => trim($request->getPost('SetTanggal')),
+                    // 'LogTanggal'     => trim($request->getPost('SetTanggal')),
                     'LogStatus'      => $status
                 ];
 
@@ -212,7 +215,7 @@ class active extends AdminController
                     $dataset['LogJamKeluar'] = $jamKeluar;
                 }
 
-                dd($dataset);
+                // dd($dataset);
                 $Logmodel = model('LogModel');
                 $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
 
