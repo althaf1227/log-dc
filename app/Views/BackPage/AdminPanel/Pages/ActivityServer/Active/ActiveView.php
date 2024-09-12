@@ -28,6 +28,7 @@
                                         <th>Keperluan</th>
                                         <th>Persetujuan</th>
                                         <th>Tanggal Aktivitas</th>
+                                        <th>Catatan</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -65,6 +66,7 @@
                                         <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
                                         <td class="<?= $row['LogPersetujuan'] == 1 ? 'setuju' : 'tidak'; ?>"><?php echo esc($row['LogPersetujuan'] == 1 ? 'Disetujui' : 'Tidak Disetujui'); ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
+                                        <td><?php echo htmlspecialchars_decode($row['catatan']) ?></td>
                                         <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
                                         <td>
                                             <div class="d-flex">

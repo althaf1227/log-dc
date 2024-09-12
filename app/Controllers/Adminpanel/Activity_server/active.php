@@ -73,7 +73,7 @@ class active extends AdminController
 
         $Logmodel = model('LogModel');
         $Log = $Logmodel->find($id);
-        
+
 
         $data['Log'] = $Log;
 
@@ -153,7 +153,13 @@ class active extends AdminController
                             'required' => '{field} harus diisi'
                         ]
                     ],
-
+                    'SetCatatan' => [
+                        'label' => 'catatan',
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} harus diisi'
+                        ]
+                    ],
                     'SetKeperluan' => [
                         'label' => 'Keperluan',
                         'rules' => 'required',
@@ -176,7 +182,7 @@ class active extends AdminController
             } else {
                 $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
                 $jamKeluar = $request->getPost('SetJamkeluar');
-                
+
 
                 $status = 'request';
 
@@ -194,21 +200,22 @@ class active extends AdminController
                     'LogInstansi'    => trim($request->getPost('SetInstansi')),
                     'LogJamasuk'     => trim($request->getPost('SetJamMasuk')),
                     'LogKeperluan'   => htmlspecialchars_decode($request->getPost('SetKeperluan')),
+                    'catatan'        => htmlspecialchars_decode($request->getPost('SetCatatan')),
                     'LogPersetujuan' => $persetujuan,
                     'LogTanggal'     => trim($request->getPost('SetTanggal')),
                     'LogStatus'      => $status
                 ];
 
-                var_dump($this->request->getPost());
-                
+
+
                 if (!empty($jamKeluar)) {
                     $dataset['LogJamKeluar'] = $jamKeluar;
                 }
 
-                // dd($dataset);
+                dd($dataset);
                 $Logmodel = model('LogModel');
                 $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
-                
+
 
                 return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
             }
