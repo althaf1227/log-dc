@@ -133,20 +133,7 @@
                                             <div class="invalid-feedback">Masukan Keperluan anda.</div>
                                         </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetCatatan">Catatan untuk Pengunjung<span
-                                                class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <textarea id="mytextarea"
-                                                name="SetCatatan"><?php if (is_null(old('SetCatatan')) == false) {
-                                                                        echo old('SetCatatan');
-                                                                    } else {
-                                                                        if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                            echo esc($Log['LogCatatan']);
-                                                                    } ?></textarea>
-                                            <div class="invalid-feedback">Masukan Catatan anda.</div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">

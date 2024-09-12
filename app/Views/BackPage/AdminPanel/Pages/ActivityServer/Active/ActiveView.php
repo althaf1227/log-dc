@@ -27,7 +27,6 @@
                                         <th>Jam Keluar</th>
                                         <th>Keperluan</th>
                                         <th>Persetujuan</th>
-                                        <th>Catatan</th>
                                         <th>Tanggal Aktivitas</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
@@ -60,12 +59,11 @@
                                             if (!empty($row['LogJamKeluar'])) {
                                                 echo date("H:i:s", strtotime($row['LogJamKeluar']));
                                             } else {
-                                                echo ''; 
+                                                echo '';
                                             }
                                             ?></td>
                                         <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
                                         <td class="<?= $row['LogPersetujuan'] == 1 ? 'setuju' : 'tidak'; ?>"><?php echo esc($row['LogPersetujuan'] == 1 ? 'Disetujui' : 'Tidak Disetujui'); ?></td>
-                                        <td><?php echo htmlspecialchars_decode($row['LogCatatan']); ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
                                         <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
                                         <td>

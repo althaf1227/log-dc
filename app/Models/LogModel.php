@@ -18,8 +18,7 @@ class LogModel extends Model
         'LogJamMasuk',
         'LogJamKeluar',
         'LogPersetujuan',
-        'LogCatatan',
-        'LogStatus'
+        'LogStatus',
     ];
 
     protected $useTimestamps = true;

@@ -161,13 +161,7 @@ class active extends AdminController
                             'required' => '{field} harus diisi'
                         ]
                     ],
-                    'SetCatatan' => [
-                        'label' => 'Catatan',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
+
                     'SetTanggal' => [
                         'label' => 'Tanggal',
                         'rules' => 'required',
@@ -182,6 +176,7 @@ class active extends AdminController
             } else {
                 $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
                 $jamKeluar = $request->getPost('SetJamkeluar');
+                
 
                 $status = 'request';
 
@@ -193,18 +188,19 @@ class active extends AdminController
                 }
 
                 $dataset = [
-                    'LogNama' => trim($request->getPost('SetNama')),
-                    'LogNomorHp' => trim($request->getPost('SetNomorHp')),
-                    'LogEmail' => trim($request->getPost('SetEmail')),
-                    'LogInstansi' => trim($request->getPost('SetInstansi')),
-                    'LogJamasuk' => trim($request->getPost('SetJamMasuk')),
-                    'LogKeperluan' => htmlspecialchars_decode($request->getPost('SetKeperluan')),
-                    'LogCatatan' => htmlspecialchars_decode($request->getPost('SetCatatan')),
+                    'LogNama'        => trim($request->getPost('SetNama')),
+                    'LogNomorHp'     => trim($request->getPost('SetNomorHp')),
+                    'LogEmail'       => trim($request->getPost('SetEmail')),
+                    'LogInstansi'    => trim($request->getPost('SetInstansi')),
+                    'LogJamasuk'     => trim($request->getPost('SetJamMasuk')),
+                    'LogKeperluan'   => htmlspecialchars_decode($request->getPost('SetKeperluan')),
                     'LogPersetujuan' => $persetujuan,
-                    'LogTanggal' => trim($request->getPost('SetTanggal')),
-                    'LogStatus' => $status
+                    'LogTanggal'     => trim($request->getPost('SetTanggal')),
+                    'LogStatus'      => $status
                 ];
 
+                var_dump($this->request->getPost());
+                
                 if (!empty($jamKeluar)) {
                     $dataset['LogJamKeluar'] = $jamKeluar;
                 }
