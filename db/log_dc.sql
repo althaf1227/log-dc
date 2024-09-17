@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2024 at 09:13 AM
+-- Generation Time: Sep 17, 2024 at 03:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `logmiaw`
+-- Database: `log_dc`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE `auth_identities` (
 --
 
 INSERT INTO `auth_identities` (`id`, `user_id`, `type`, `name`, `secret`, `secret2`, `expires`, `extra`, `force_reset`, `last_used_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'email_password', 'Penjaga Server', 'jagaserver@gmail.com', '$2y$12$1Uk83xr1tZXEfDbJTG179.2JHqCjyvbYpIJu7LaAjz6Q5LbBKn9Eq', NULL, NULL, 0, '2024-08-28 09:14:27', '2023-11-10 09:14:24', '2024-08-28 09:14:27');
+(1, 1, 'email_password', 'Penjaga Server', 'jagaserver@gmail.com', '$2y$12$1Uk83xr1tZXEfDbJTG179.2JHqCjyvbYpIJu7LaAjz6Q5LbBKn9Eq', NULL, NULL, 0, '2024-09-17 07:48:52', '2023-11-10 09:14:24', '2024-09-17 07:48:52');
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,36 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `user_agent`, `id_type`, `identif
 (55, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:33:18', 1),
 (56, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:35:35', 1),
 (57, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:56:03', 1),
-(58, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 09:14:27', 1);
+(58, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 09:14:27', 1),
+(59, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-28 14:49:58', 0),
+(60, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 14:50:03', 1),
+(61, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-29 08:46:39', 0),
+(62, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-29 08:46:47', 1),
+(63, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-29 13:24:03', 1),
+(64, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-30 07:55:53', 1),
+(65, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-30 10:31:19', 1),
+(66, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-02 08:14:04', 1),
+(67, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-02 11:45:32', 1),
+(68, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-03 08:47:28', 1),
+(69, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-03 14:18:42', 1),
+(70, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 07:38:17', 1),
+(71, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 11:36:49', 1),
+(72, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 13:52:58', 1),
+(73, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-05 07:59:06', 1),
+(74, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-05 13:28:49', 1),
+(75, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-06 08:01:03', 1),
+(76, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-06 13:52:53', 1),
+(77, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-09 07:56:26', 1),
+(78, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-09 14:48:49', 1),
+(79, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 08:05:15', 1),
+(80, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 12:57:50', 1),
+(81, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 13:32:51', 1),
+(82, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 13:37:57', 1),
+(83, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-11 09:14:14', 1),
+(84, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-12 08:06:55', 1),
+(85, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-13 09:37:21', 1),
+(86, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-13 13:37:09', 1),
+(87, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-17 07:48:52', 1);
 
 -- --------------------------------------------------------
 
@@ -297,174 +326,6 @@ CREATE TABLE `auth_token_logins` (
   `date` datetime NOT NULL,
   `success` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `berita_komen`
---
-
-CREATE TABLE `berita_komen` (
-  `BeritaKomenId` int(11) NOT NULL,
-  `BeritaKomenBeritaId` int(11) DEFAULT NULL,
-  `BeritaKomenTgl` datetime DEFAULT NULL,
-  `BeritaKomenNamaPengirim` varchar(255) DEFAULT NULL,
-  `BeritaKomenNoHp` varchar(255) DEFAULT NULL,
-  `BeritaKomenWebsite` varchar(255) DEFAULT NULL,
-  `BeritaKomenEmail` varchar(255) DEFAULT NULL,
-  `BeritaKomenText` varchar(255) DEFAULT NULL,
-  `BeritaKomenIp` varchar(255) DEFAULT NULL,
-  `BeritaKomenInsert` datetime DEFAULT NULL,
-  `BeritaKomenUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `berita_komen`
---
-
-INSERT INTO `berita_komen` (`BeritaKomenId`, `BeritaKomenBeritaId`, `BeritaKomenTgl`, `BeritaKomenNamaPengirim`, `BeritaKomenNoHp`, `BeritaKomenWebsite`, `BeritaKomenEmail`, `BeritaKomenText`, `BeritaKomenIp`, `BeritaKomenInsert`, `BeritaKomenUpdate`) VALUES
-(1, 7733, '2024-05-20 00:00:00', 'Ardian', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', NULL, NULL, NULL),
-(2, 7733, '2024-05-21 00:00:00', 'Bagas', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', NULL, NULL, NULL),
-(3, 7732, '2024-08-01 16:34:51', 'Pradita', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `front_menu`
---
-
-CREATE TABLE `front_menu` (
-  `FrontMenuId` int(11) NOT NULL,
-  `FrontMenuNama` varchar(255) DEFAULT NULL,
-  `FrontMenuUrl` varchar(255) DEFAULT NULL COMMENT 'menyesuikan dengan type',
-  `FrontMenuType` enum('page','subpage','link') DEFAULT NULL COMMENT '(page) url link controllers, (subpage) ulr link : # ,(link) wajjib isi url dengan link ',
-  `FrontMenuNoUrut` int(11) DEFAULT NULL COMMENT 'no urut dari menu',
-  `FrontMenuAktif` int(11) DEFAULT 0,
-  `FrontMenuInsert` datetime DEFAULT NULL,
-  `FrontMenuUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `front_menu`
---
-
-INSERT INTO `front_menu` (`FrontMenuId`, `FrontMenuNama`, `FrontMenuUrl`, `FrontMenuType`, `FrontMenuNoUrut`, `FrontMenuAktif`, `FrontMenuInsert`, `FrontMenuUpdate`) VALUES
-(1, 'Home', '/', 'page', 1, 1, NULL, NULL),
-(2, 'Profil', '#', 'subpage', 2, 1, NULL, NULL),
-(3, 'Berita', '/frontpanel/berita', 'page', 3, 1, NULL, NULL),
-(4, 'Informasi', '#', 'subpage', 7, 1, NULL, NULL),
-(5, 'Download', '/frontpanel/download', 'page', 9, 1, NULL, NULL),
-(6, 'Link', '/frontpanel/link', 'page', 10, 1, NULL, NULL),
-(7, 'Kontak', '/frontpanel/kontak', 'page', 12, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `front_sub_menu`
---
-
-CREATE TABLE `front_sub_menu` (
-  `FrontSubMenuId` int(11) NOT NULL,
-  `FrontSubMenuFrontMenuId` int(11) DEFAULT NULL,
-  `FrontSubMenuFrontSubMenuKategoriId` int(11) DEFAULT NULL,
-  `FrontSubMenuNama` varchar(255) DEFAULT NULL,
-  `FrontSubMenuUrl` varchar(255) DEFAULT NULL,
-  `FrontSubMenuType` enum('page','page_kategori','sub_page','sub_page_kategori') DEFAULT NULL,
-  `FrontSubMenuNoUrut` int(11) DEFAULT NULL,
-  `FrontSubMenuAktif` int(11) DEFAULT NULL,
-  `FrontSubMenuInsert` datetime DEFAULT NULL,
-  `FrontSubMenuUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `front_sub_menu`
---
-
-INSERT INTO `front_sub_menu` (`FrontSubMenuId`, `FrontSubMenuFrontMenuId`, `FrontSubMenuFrontSubMenuKategoriId`, `FrontSubMenuNama`, `FrontSubMenuUrl`, `FrontSubMenuType`, `FrontSubMenuNoUrut`, `FrontSubMenuAktif`, `FrontSubMenuInsert`, `FrontSubMenuUpdate`) VALUES
-(1, 2, 1, 'Sejarah Pati', '/frontpanel/profil/profil-daerah/sejarah-pati', 'page_kategori', 1, 1, NULL, NULL),
-(2, 2, 1, 'Arti Lambang', '/frontpanel/profil/profil-daerah/arti-lambang', 'page_kategori', 2, 1, NULL, NULL),
-(3, 2, 1, 'Kondisi Geografis', '/frontpanel/profil/profil-daerah/kondisi-geografis', 'page_kategori', 3, 1, NULL, NULL),
-(4, 2, 1, 'Kependudukan', '/frontpanel/profil/profil-daerah/kependudukan', 'page_kategori', 4, 1, NULL, NULL),
-(5, 2, 1, 'Kondisi Pemerintahan', '/frontpanel/profil/profil-daerah/kondisi-pemerintah', 'page_kategori', 5, 1, NULL, NULL),
-(11, 2, 2, 'OPD', '/frontpanel/profil/profil-pemerintahan/opd', 'page_kategori', 4, 1, NULL, NULL),
-(12, 2, 2, 'Visi Misi', '/frontpanel/profil/profil-pemerintahan/visi-misi', 'page_kategori', 1, 1, NULL, NULL),
-(13, 2, 2, 'Kepala Daerah', '/frontpanel/profil/profil-pemerintahan/kepala-daerah', 'page_kategori', 2, 1, NULL, NULL),
-(14, 2, 2, 'Struktur Organisasi', '/frontpanel/profil/profil-pemerintahan/struktur-organisasi', 'page_kategori', 3, 1, NULL, NULL),
-(15, 4, NULL, 'P3DN', '/frontpanel/informasi/p3dn', 'page', 4, 1, NULL, NULL),
-(16, 4, NULL, 'Stunting', '/frontpanel/informasi/stunting', 'page', 3, 1, NULL, NULL),
-(17, 4, NULL, 'Narasi Tunggal', '/frontpanel/informasi/narasi-tunggal', 'page', 1, 1, NULL, NULL),
-(18, 4, NULL, 'Transparansi Keuangan', '/frontpanel/informasi/transparansi-keuangan', 'page', 2, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `front_sub_menu_kategori`
---
-
-CREATE TABLE `front_sub_menu_kategori` (
-  `FrontSubMenuKategoriId` int(11) NOT NULL,
-  `FrontSubMenuKategoriFrontMenuId` int(11) DEFAULT NULL,
-  `FrontSubMenuKategoriNama` varchar(255) DEFAULT NULL,
-  `FrontSubMenuKategoriNoUrut` int(11) DEFAULT NULL,
-  `FrontSubMenuKategoriAktif` int(11) DEFAULT NULL,
-  `FrontSubMenuKategoriInsert` datetime DEFAULT NULL,
-  `FrontSubMenuKategoriUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `front_sub_menu_kategori`
---
-
-INSERT INTO `front_sub_menu_kategori` (`FrontSubMenuKategoriId`, `FrontSubMenuKategoriFrontMenuId`, `FrontSubMenuKategoriNama`, `FrontSubMenuKategoriNoUrut`, `FrontSubMenuKategoriAktif`, `FrontSubMenuKategoriInsert`, `FrontSubMenuKategoriUpdate`) VALUES
-(1, 2, 'Profil Daerah', 1, 1, NULL, NULL),
-(2, 2, 'Profil Pemerintahan', 2, 1, NULL, NULL),
-(3, 2, 'Sa Layang Pandang Pati', 3, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategori_download`
---
-
-CREATE TABLE `kategori_download` (
-  `KategoriDownloadId` int(11) NOT NULL,
-  `KategoriDownloadNama` varchar(255) DEFAULT NULL,
-  `KategoriDownloadInsert` datetime DEFAULT NULL,
-  `KategoriDownloadUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `kategori_download`
---
-
-INSERT INTO `kategori_download` (`KategoriDownloadId`, `KategoriDownloadNama`, `KategoriDownloadInsert`, `KategoriDownloadUpdate`) VALUES
-(1, 'SE Bupati', NULL, NULL),
-(2, 'INBUP', NULL, NULL),
-(3, 'Surat Edaran', NULL, NULL),
-(4, 'Lowongan', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategori_informasi`
---
-
-CREATE TABLE `kategori_informasi` (
-  `KategoriInformasiId` int(11) NOT NULL,
-  `KategoriInformasiNama` varchar(255) DEFAULT NULL,
-  `KategoriInformasiInsert` datetime DEFAULT NULL,
-  `KategoriInformasiUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `kategori_informasi`
---
-
-INSERT INTO `kategori_informasi` (`KategoriInformasiId`, `KategoriInformasiNama`, `KategoriInformasiInsert`, `KategoriInformasiUpdate`) VALUES
-(1, 'P3DN', NULL, NULL),
-(2, 'Stunting', NULL, NULL),
-(3, 'Narasi Tunggal', NULL, NULL),
-(4, 'Transparansi Keuangan', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1366,9 +1227,9 @@ CREATE TABLE `log_masuk` (
 --
 
 INSERT INTO `log_masuk` (`LogId`, `LogTanggal`, `LogNama`, `LogInstansi`, `LogNomorHp`, `LogEmail`, `LogKeperluan`, `LogJamMasuk`, `LogJamKeluar`, `LogPersetujuan`, `LogCatatan`, `LogStatus`, `LogInsert`, `LogUpdate`) VALUES
-(1, '2024-08-28', 'althaf', 'kominfo', '0976789009876', 'zeta@gmail.com', 'coba', '09:45:59', '10:45:56', 1, 'coba', 'request', NULL, NULL),
-(2, '2024-08-28', 'althaf', 'kominfo', '098789876789', 'zeta@gmail.com', 'coba', '08:45:59', '13:45:59', 3, 'coab', 'in process', NULL, NULL),
-(3, '2024-08-28', 'althaf', 'kominfo', '09876789056', 'zeta@gmail.com', 'coba', '12:50:13', '17:50:13', 4, 'coba', 'completed', NULL, NULL);
+(1, '2024-09-11', 'zeta', 'hololive', '082136413548', 'zetabazo@gmail.com', '<p>maintenence</p>', '09:45:59', NULL, 0, '<p>sedang istirahat</p>', 'request', NULL, '2024-09-17 07:52:39'),
+(2, '2024-08-28', 'althaf', 'kominfo', '098789876789', 'zeta@gmail.com', 'maintenace', '08:45:59', NULL, 1, '<p>mengambil barang</p>', 'in process', NULL, '2024-09-13 09:38:03'),
+(3, '2024-08-28', 'althaf3', 'kominfo', '09876789056', 'zeta@gmail.com', 'maintenace', '12:50:13', '17:50:13', 1, 'lain kali jangan lupa yah', 'completed', NULL, '2024-09-10 09:30:28');
 
 -- --------------------------------------------------------
 
@@ -1433,27 +1294,6 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 (1, '2020-12-28-223112', 'CodeIgniter\\Shield\\Database\\Migrations\\CreateAuthTables', 'default', 'CodeIgniter\\Shield', 1701069642, 1),
 (2, '2021-07-04-041948', 'CodeIgniter\\Settings\\Database\\Migrations\\CreateSettingsTable', 'default', 'CodeIgniter\\Settings', 1701069643, 1),
 (3, '2021-11-14-143905', 'CodeIgniter\\Settings\\Database\\Migrations\\AddContextColumn', 'default', 'CodeIgniter\\Settings', 1701069643, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mst_kategori_berita`
---
-
-CREATE TABLE `mst_kategori_berita` (
-  `KategoriBeritaId` int(11) NOT NULL,
-  `KategoriBeritaNama` varchar(255) DEFAULT NULL,
-  `KategoriBeritaDeskripsi` varchar(255) DEFAULT NULL,
-  `KategoriBeritaInsert` datetime DEFAULT NULL,
-  `KategoriBeritaUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `mst_kategori_berita`
---
-
-INSERT INTO `mst_kategori_berita` (`KategoriBeritaId`, `KategoriBeritaNama`, `KategoriBeritaDeskripsi`, `KategoriBeritaInsert`, `KategoriBeritaUpdate`) VALUES
-(1, 'News,2024', '&lt;p&gt;&lt;strong&gt;Berita Utama&lt;/strong&gt;&lt;/p&gt;', '2024-08-01 08:59:54', '2024-08-01 09:54:52');
 
 -- --------------------------------------------------------
 
@@ -1548,91 +1388,6 @@ INSERT INTO `my_admin_users_menu` (`UsersMenuId`, `UsersMenuUsersId`, `UsersMenu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `on_the_spot_file`
---
-
-CREATE TABLE `on_the_spot_file` (
-  `OnTheSpotFileId` int(11) NOT NULL,
-  `OnTheSpotFileOnTheSpotId` int(11) DEFAULT NULL,
-  `OnTheSpotFileNama` varchar(255) DEFAULT NULL,
-  `OnTheSpotFileKeterangan` varchar(255) DEFAULT NULL,
-  `OnTheSpotFileInsert` datetime DEFAULT NULL,
-  `OnTheSpotFileUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `on_the_spot_file`
---
-
-INSERT INTO `on_the_spot_file` (`OnTheSpotFileId`, `OnTheSpotFileOnTheSpotId`, `OnTheSpotFileNama`, `OnTheSpotFileKeterangan`, `OnTheSpotFileInsert`, `OnTheSpotFileUpdate`) VALUES
-(1, 1, '64.jpg', 'Pati Viral', NULL, NULL),
-(2, 1, '64.jpg', 'Pati Viral', NULL, NULL),
-(3, 1, '64.jpg', 'Pati Viral', NULL, NULL),
-(4, 2, '64.jpg', 'Pati Viral', NULL, NULL),
-(5, 3, '64.jpg', 'Pati Viral', NULL, NULL),
-(6, 3, '64.jpg', 'Pati Viral', NULL, NULL),
-(7, 4, '64.jpg', 'Pati Viral', NULL, NULL),
-(31, 27, '1722841327_2df7ee94c1fc0d1676dd.jpg', 'ref', '2024-08-05 14:02:07', '2024-08-05 14:02:07'),
-(32, 27, '1722841327_f26d5f7ce1dfd8cfa12b.jpg', 'ref', '2024-08-05 14:02:07', '2024-08-05 14:02:07'),
-(43, 49, '1722993995_e5d33f31d13d86048d88.jpg', 'gnm', '2024-08-07 08:26:35', '2024-08-07 08:26:35'),
-(44, 51, '1723524684_97956c0d567373778b95.png', 'vnbnm', '2024-08-13 11:51:24', '2024-08-13 11:51:24'),
-(45, 52, '1723608166_bdc6081ae2167634af76.png', 'nyoba', '2024-08-14 11:02:46', '2024-08-14 11:02:46');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pengumuman`
---
-
-CREATE TABLE `pengumuman` (
-  `PengumumanId` int(11) NOT NULL,
-  `PengumumanJudul` varchar(255) DEFAULT NULL,
-  `PengumumanText` varchar(255) DEFAULT NULL,
-  `PengumumanView` varchar(255) DEFAULT NULL,
-  `PengumumanInsert` datetime DEFAULT NULL,
-  `PengumumanUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `pengumuman`
---
-
-INSERT INTO `pengumuman` (`PengumumanId`, `PengumumanJudul`, `PengumumanText`, `PengumumanView`, `PengumumanInsert`, `PengumumanUpdate`) VALUES
-(1, 'LARANGAN PENGOPERASIAN KENDARAAN ANGKUTAN BARANG', 'Berdasarkan Surat Edaran Menteri Perhubungan No. 48  Tahun 2015, Pada Tanggal 30 Desember 2015 s.d. 3 Januari 2015', '20', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `publik_komen`
---
-
-CREATE TABLE `publik_komen` (
-  `PublikKomenId` int(11) NOT NULL,
-  `PublikKomenTgl` datetime DEFAULT NULL,
-  `PublikKomenNamaPengirim` varchar(255) DEFAULT NULL,
-  `PublikKomenNoHp` varchar(255) DEFAULT NULL,
-  `PublikKomenSubject` varchar(255) DEFAULT NULL,
-  `PublikKomenEmail` varchar(255) DEFAULT NULL,
-  `PublikKomenGambar` varchar(255) DEFAULT NULL,
-  `PublikKomenText` varchar(255) DEFAULT NULL,
-  `PublikKomenBalasanText` varchar(255) DEFAULT NULL,
-  `PublikKomenIp` varchar(255) DEFAULT NULL,
-  `PublikKomenInsert` datetime DEFAULT NULL,
-  `PublikKomenUpdate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `publik_komen`
---
-
-INSERT INTO `publik_komen` (`PublikKomenId`, `PublikKomenTgl`, `PublikKomenNamaPengirim`, `PublikKomenNoHp`, `PublikKomenSubject`, `PublikKomenEmail`, `PublikKomenGambar`, `PublikKomenText`, `PublikKomenBalasanText`, `PublikKomenIp`, `PublikKomenInsert`, `PublikKomenUpdate`) VALUES
-(1, '2024-05-20 00:00:00', 'Ardian', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'logo.png', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', 'Terima Kasih Sudah Memberikan Komentar Anda', NULL, NULL, '2024-05-21 00:00:00'),
-(2, '2024-05-21 00:00:00', 'Bagas', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'logo.png', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', NULL, NULL, NULL, NULL),
-(3, '2024-08-01 16:34:51', 'Pradita', '0897659997222', 'Bagus Lanjutkan', 'ardiansusetyo@gmail.com', 'logo.png', 'Untuk lebih Lengkapnya untuk penambahan inovasi yang lebih baik lagi', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `settings`
 --
 
@@ -1684,7 +1439,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `status`, `status_message`, `active`, `last_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'admin', NULL, NULL, 1, '2024-08-28 09:14:37', '2023-11-10 09:14:24', '2023-11-10 09:14:25', NULL);
+(1, 'admin', NULL, NULL, 1, '2024-09-17 07:58:17', '2023-11-10 09:14:24', '2023-11-10 09:14:25', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1737,42 +1492,6 @@ ALTER TABLE `auth_token_logins`
   ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
--- Indexes for table `berita_komen`
---
-ALTER TABLE `berita_komen`
-  ADD PRIMARY KEY (`BeritaKomenId`) USING BTREE;
-
---
--- Indexes for table `front_menu`
---
-ALTER TABLE `front_menu`
-  ADD PRIMARY KEY (`FrontMenuId`) USING BTREE;
-
---
--- Indexes for table `front_sub_menu`
---
-ALTER TABLE `front_sub_menu`
-  ADD PRIMARY KEY (`FrontSubMenuId`) USING BTREE;
-
---
--- Indexes for table `front_sub_menu_kategori`
---
-ALTER TABLE `front_sub_menu_kategori`
-  ADD PRIMARY KEY (`FrontSubMenuKategoriId`) USING BTREE;
-
---
--- Indexes for table `kategori_download`
---
-ALTER TABLE `kategori_download`
-  ADD PRIMARY KEY (`KategoriDownloadId`) USING BTREE;
-
---
--- Indexes for table `kategori_informasi`
---
-ALTER TABLE `kategori_informasi`
-  ADD PRIMARY KEY (`KategoriInformasiId`) USING BTREE;
-
---
 -- Indexes for table `layanan_opd`
 --
 ALTER TABLE `layanan_opd`
@@ -1798,12 +1517,6 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `mst_kategori_berita`
---
-ALTER TABLE `mst_kategori_berita`
-  ADD PRIMARY KEY (`KategoriBeritaId`) USING BTREE;
-
---
 -- Indexes for table `my_admin_menu`
 --
 ALTER TABLE `my_admin_menu`
@@ -1816,24 +1529,6 @@ ALTER TABLE `my_admin_users_menu`
   ADD PRIMARY KEY (`UsersMenuId`) USING BTREE,
   ADD UNIQUE KEY `UsersMenuUsersId` (`UsersMenuUsersId`,`UsersMenuMenuId`) USING BTREE,
   ADD KEY `UsersMenuMenuId` (`UsersMenuMenuId`) USING BTREE;
-
---
--- Indexes for table `on_the_spot_file`
---
-ALTER TABLE `on_the_spot_file`
-  ADD PRIMARY KEY (`OnTheSpotFileId`) USING BTREE;
-
---
--- Indexes for table `pengumuman`
---
-ALTER TABLE `pengumuman`
-  ADD PRIMARY KEY (`PengumumanId`) USING BTREE;
-
---
--- Indexes for table `publik_komen`
---
-ALTER TABLE `publik_komen`
-  ADD PRIMARY KEY (`PublikKomenId`) USING BTREE;
 
 --
 -- Indexes for table `settings`
@@ -1868,162 +1563,13 @@ ALTER TABLE `auth_identities`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions_users`
 --
 ALTER TABLE `auth_permissions_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
-
---
--- AUTO_INCREMENT for table `auth_remember_tokens`
---
-ALTER TABLE `auth_remember_tokens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_token_logins`
---
-ALTER TABLE `auth_token_logins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `berita_komen`
---
-ALTER TABLE `berita_komen`
-  MODIFY `BeritaKomenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `front_menu`
---
-ALTER TABLE `front_menu`
-  MODIFY `FrontMenuId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `front_sub_menu`
---
-ALTER TABLE `front_sub_menu`
-  MODIFY `FrontSubMenuId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `front_sub_menu_kategori`
---
-ALTER TABLE `front_sub_menu_kategori`
-  MODIFY `FrontSubMenuKategoriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `kategori_download`
---
-ALTER TABLE `kategori_download`
-  MODIFY `KategoriDownloadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `kategori_informasi`
---
-ALTER TABLE `kategori_informasi`
-  MODIFY `KategoriInformasiId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `layanan_opd`
---
-ALTER TABLE `layanan_opd`
-  MODIFY `LayananOpdId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=916;
-
---
--- AUTO_INCREMENT for table `log_statistik`
---
-ALTER TABLE `log_statistik`
-  MODIFY `LogId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `mst_kategori_berita`
---
-ALTER TABLE `mst_kategori_berita`
-  MODIFY `KategoriBeritaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `my_admin_menu`
---
-ALTER TABLE `my_admin_menu`
-  MODIFY `MenuId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT for table `my_admin_users_menu`
---
-ALTER TABLE `my_admin_users_menu`
-  MODIFY `UsersMenuId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT for table `on_the_spot_file`
---
-ALTER TABLE `on_the_spot_file`
-  MODIFY `OnTheSpotFileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
---
--- AUTO_INCREMENT for table `pengumuman`
---
-ALTER TABLE `pengumuman`
-  MODIFY `PengumumanId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `publik_komen`
---
-ALTER TABLE `publik_komen`
-  MODIFY `PublikKomenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `auth_groups_users`
---
-ALTER TABLE `auth_groups_users`
-  ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `auth_identities`
---
-ALTER TABLE `auth_identities`
-  ADD CONSTRAINT `auth_identities_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `auth_permissions_users`
---
-ALTER TABLE `auth_permissions_users`
-  ADD CONSTRAINT `auth_permissions_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `auth_remember_tokens`
---
-ALTER TABLE `auth_remember_tokens`
-  ADD CONSTRAINT `auth_remember_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `my_admin_users_menu`
---
-ALTER TABLE `my_admin_users_menu`
-  ADD CONSTRAINT `my_admin_users_menu_ibfk_1` FOREIGN KEY (`UsersMenuUsersId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `my_admin_users_menu_ibfk_2` FOREIGN KEY (`UsersMenuMenuId`) REFERENCES `my_admin_menu` (`MenuId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
