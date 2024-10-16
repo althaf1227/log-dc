@@ -29,6 +29,7 @@
                                         <th>Persetujuan</th>
                                         <th>Tanggal Aktivitas</th>
                                         <th>Catatan</th>
+                                        <th>Gambar</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -60,13 +61,19 @@
                                             if (!empty($row['LogJamKeluar'])) {
                                                 echo date("H:i:s", strtotime($row['LogJamKeluar']));
                                             } else {
-                                                echo '';
+                                                echo 'pengunjung belom keluar';
                                             }
                                             ?></td>
                                         <td><?php echo htmlspecialchars_decode($row['LogKeperluan']); ?></td>
                                         <td class="<?= $row['LogPersetujuan'] == 1 ? 'setuju' : 'tidak'; ?>"><?php echo esc($row['LogPersetujuan'] == 1 ? 'Disetujui' : 'Tidak Disetujui'); ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($row['LogTanggal'])); ?></td>
                                         <td><?php echo htmlspecialchars_decode($row['LogCatatan']) ?></td>
+                                        <td><?php if(!empty($row['LogGambar'])): ?>
+                                                <img src="<?= base_url($row['LogGambar']); ?>" alt="gambar" width="200" height="140">
+                                            <?php else: ?>
+                                                <p>belum ada gambar</p>
+                                            <?php endif; ?>
+                                        </td>
                                         <td class="<?php echo $statusClass; ?>"><?php echo esc($row['LogStatus']); ?></td>
                                         <td>
                                             <div class="d-flex">

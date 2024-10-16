@@ -3,7 +3,7 @@
 namespace App\Controllers\Adminpanel\Activity_server;
 
 use App\Controllers\AdminController;
-
+use App\Models\LogModel;
 
 class active extends AdminController
 {
@@ -182,7 +182,19 @@ class active extends AdminController
             } else {
                 $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
                 $jamKeluar = $request->getPost('SetJamkeluar');
+                $foto =$request->getPOst('imageData');
 
+                $filePath = '';
+                if ($foto){
+                    $foto = str_replace('data:image/png;base64,', '', $foto);
+                    $foto = str_replace(' ', '+', $foto);
+                    $data = base64_decode($foto);
+
+                    $filename = uniqid() . '.png';
+                    $filePath = 'uploads/foto/' . $filename; // Path untuk menyimpan gambar
+
+                    file_put_contents($filePath, $data);
+                }
 
                 $status = 'request';
 
@@ -206,10 +218,9 @@ class active extends AdminController
                     'LogCatatan'     => $catatan,
                     'LogPersetujuan' => $persetujuan,
                     // 'LogTanggal'     => trim($request->getPost('SetTanggal')),
-                    'LogStatus'      => $status
+                    'LogStatus'      => $status,
+                    'LogGambar'      => $filePath
                 ];
-
-
 
                 if (!empty($jamKeluar)) {
                     $dataset['LogJamKeluar'] = $jamKeluar;

@@ -20,6 +20,7 @@ class LogModel extends Model
         'LogPersetujuan',
         'LogCatatan',
         'LogStatus',
+        'LogGambar'
     ];
 
     protected $useTimestamps = true;

@@ -1,5 +1,5 @@
 <?php echo $this->extend('BackPage/AdminPanel/Layout/template'); ?>
-
+    
 <?php echo $this->section('content'); ?>
 
 <div class="content-body">
@@ -107,6 +107,32 @@
                                             <div class="invalid-feedback">Masukan Jam masuk.</div>
                                         </div>
                                     </div> -->
+                                    <div class="mb-3 row">
+                                        <label for="SetGambar" class="col-sm-3 col-form-label">Silahkan Ambil Foto<span class="text-danger">*</span></label>
+                                        <div class="col-sm-9">
+                                            <div class="form-group">
+                                                <div>
+                                                    <video id="video" name="SetGambar" width="300" height="140" autoplay></video>
+                                                    <div class="mb-3">
+                                                        <button id="capture" type="button" class="btn btn-primary">Ambil foto</button>
+                                                    </div>
+                                                    <div class="header-section">
+                                                        <span id="error-message-gambar"
+                                                        class="error-message text-danger"></span>
+                                                    </div>
+                                                    <div id="preview-gambar">
+                                                        <?php if (!empty($Log)): ?>
+                                                            <div class="thumbnail" data-name="<?= $Log['LogGambar'] ?>">
+                                                                <canvas id="canvas" class="d-none" width="300" height="140"></canvas>
+                                                                <img class="mb-4" alt="tangkapan foto" id="photo" width="180" height="140">
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <input type="hidden" id="imageData" name="imageData">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
@@ -255,6 +281,26 @@
 <?php echo $this->section('content_js_custom'); ?>
 
 <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const photo = document.getElementById('photo');
+    const imageData =document.getElementById('imageData');
+    const context = canvas.getContext('2d');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(err => {
+            console.error("Error: " + err);
+        }); 
+
+    document.getElementById('capture').addEventListener('click', () => {
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const data = canvas.toDataURL('image/png');
+        photo.src = data;
+        imageData.value = data;
+    });
     $(document).ready(function() {
 
         $("#btn_simpan").on("click", function(e) {
@@ -266,6 +312,7 @@
 
         });
     });
+
     tinymce.init({
         selector: 'textarea#mytextarea',
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code',
@@ -282,6 +329,8 @@
         height: 300,
         license_key: 'gpl'
     });
+
+
 </script>
 
 <?php echo $this->endSection(); ?>
