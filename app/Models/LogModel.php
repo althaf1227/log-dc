@@ -26,4 +26,10 @@ class LogModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'LogInsert';
     protected $updatedField = 'LogUpdate';
+
+
+    public function gettanggal($tahun){
+        return-$this->db->table('log_masuk')
+        ->where('YEAR(LogTanggal)', $tahun); 
+    }
 }

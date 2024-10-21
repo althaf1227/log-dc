@@ -16,6 +16,20 @@ $users_menus = $MyAdminUsersMenuModel->getMenuForUser($user);
 			</li>
 			<?php if ($user->inGroup('admin')) { ?>
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-381-user-9"></i>
+						<span class="nav-text">User Management</span>
+					</a>
+					<ul aria-expanded="false">
+						<li><a href="<?php echo site_url('adminpanel/user-management/group'); ?>">Group</a></li>
+						<li><a href="<?php echo site_url('adminpanel/user-management/menu'); ?>">Menu</a></li>
+						<li><a href="<?php echo site_url('adminpanel/user-management/permission'); ?>">Permission</a></li>
+						<li><a href="<?php echo site_url('adminpanel/user-management/users'); ?>">Users</a></li>
+						<li><a href="<?php echo site_url('adminpanel/user-management/users-menu'); ?>">Users Menu</a></li>
+					</ul>
+				</li>
+			<?php } ?>
+			<?php if ($user->inGroup('admin')) { ?>
+				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<i class="far fa-clipboard"></i>
 						<span class="nav-text">Server activity</span>
 					</a>
@@ -47,11 +61,11 @@ $users_menus = $MyAdminUsersMenuModel->getMenuForUser($user);
 			} ?> -->
 
 		</ul>
-		<!-- <div class="add-menu-sidebar">
+		<div class="add-menu-sidebar">
 			<img src="images/icon1.png" alt="">
 			<p>Organize your menus through button bellow</p>
 			<a href="javascript:void(0);" class="btn bg-white text-black">+ Add Menus</a>
-		</div> -->
+		</div>
 		<div class="copyright">
 			<p><strong><?php echo setting('App.siteName'); ?></strong> ©<?php echo setting('App.siteYear'); ?> All Rights Reserved</p>
 			<p>Made with <span class="heart"></span> by <?php echo setting('App.siteCopyRight'); ?></p>
@@ -61,8 +75,3 @@ $users_menus = $MyAdminUsersMenuModel->getMenuForUser($user);
 <!--**********************************
             Sidebar end
         ***********************************-->
-<style>
-	.copyright{
-		margin-top: 40vh;
-	}
-</style>
