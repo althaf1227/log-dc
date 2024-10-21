@@ -27,38 +27,27 @@ $users_menus = $MyAdminUsersMenuModel->getMenuForUser($user);
 						<li><a href="<?php echo site_url('adminpanel/user-management/users-menu'); ?>">Users Menu</a></li>
 					</ul>
 				</li>
-			<?php } ?>
-			<?php if ($user->inGroup('admin')) { ?>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="far fa-clipboard"></i>
-						<span class="nav-text">Server activity</span>
-					</a>
-					<ul aria-expanded="false">
-						<li><a href="<?php echo site_url('adminpanel/activity-server/active'); ?>">active</a></li>
-						<li><a href="<?php echo site_url('adminpanel/activity-server/inactive'); ?>">Completed</a></li>
-					</ul>
-				</li>
-			<?php } ?>
-			<!-- </?php
+			<?php }?>
+			<?php
 			foreach ($users_menus as $users_menu1) {
 				if ($users_menu1['MenuHasSubmenu'] === "1") {
 			?>
 					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-381-</?php echo esc($users_menu1['MenuIcon']); ?>"></i>
-							<span class="nav-text"></?php echo esc($users_menu1['MenuName']); ?></span>
+							<i class="flaticon-381-<?php echo esc($users_menu1['MenuIcon']); ?>"></i>
+							<span class="nav-text"><?php echo esc($users_menu1['MenuName']); ?></span>
 						</a>
 						<ul aria-expanded="false">
-							</?php
+							<?php
 							foreach ($users_menus as $users_menu2) {
 								if ($users_menu2['MenuParentId'] === $users_menu1['MenuId']) {
 							?>
-									<li><a href="</?php echo site_url(esc($users_menu2['MenuUrl'])); ?>"></?php echo esc($users_menu2['MenuName']); ?></a></li>
-							</?php }
+									<li><a href="<?php echo site_url(esc($users_menu2['MenuUrl'])); ?>"><?php echo esc($users_menu2['MenuName']); ?></a></li>
+							<?php }
 							} ?>
 						</ul>
 					</li>
-			</?php }
-			} ?> -->
+			<?php }
+			} ?>
 
 		</ul>
 		<div class="add-menu-sidebar">
