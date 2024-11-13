@@ -161,6 +161,68 @@ class Users extends AdminController
         $data['datausers'] = $datausers;
         echo view('BackPage/AdminPanel/Pages/UserManagement/Users/UsersView', $data);
     }
+    public function postIndex()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX() === false) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        $validation = [
+            'groups' => 'required',
+            'key' => 'required',
+        ];
+
+        if (!$this->validate($validation)) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        if ($request->getPost('key') === "getAjaxPermissionUsers") {
+            $group_select = $this->request->getPost('groups'); // Ini adalah array input grup
+            $auth_group_users_results = [];
+
+            // Dapatkan semua pengguna dalam grup yang dipilih
+            foreach ($group_select as $group) {
+                $auth_group_users = $this->ShieldAuthGroupUsersModel->where('group', $group)->findAll();
+                $auth_group_users_results = array_merge($auth_group_users_results, $auth_group_users);
+            }
+
+            $auth_permission_users_results = [];
+
+            // Dapatkan semua permission dari pengguna yang ditemukan
+            foreach ($auth_group_users_results as $results_group_users) {
+                $permission_user = $this->ShieldAuthPermissionUsersModel->where('user_id', $results_group_users->user_id)->findAll();
+                $auth_permission_users_results = array_merge($auth_permission_users_results, $permission_user);
+            }
+
+            // Jika tidak ada permission ditemukan untuk grup pengguna, ambil semua permission
+            if (empty($auth_permission_users_results)) {
+                //Ambil semua permission dari json permission
+                file_exists(WRITEPATH . "myadmin/permission.json") === true ? $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $datapermission = null;
+                $auth_permission_users = is_null($datapermission) === false ? array_keys($datapermission) : null;
+                foreach ($auth_permission_users as $permission) {
+                    // Buat objek stdClass baru untuk setiap permission (menyesuikan dengan format)
+                    $permissionObject = new \stdClass();
+                    $permissionObject->id = null; // atau Anda bisa mengisi dengan ID yang sesuai jika ada
+                    $permissionObject->user_id = null; // atau Anda bisa mengisi dengan user_id yang sesuai jika ada
+                    $permissionObject->permission = $permission;
+                    $permissionObject->created_at = null; // atau Anda bisa mengisi dengan tanggal yang sesuai jika ada
+                    $permissionObject->updated_at = null; // atau Anda bisa mengisi dengan tanggal yang sesuai jika ada
+                    // Masukkan objek ke dalam array
+                    $auth_permission_users_results[] = $permissionObject;
+                }
+            }
+
+            $permissions = [];
+            foreach ($auth_permission_users_results as $permission) {
+                $permissions[] = [
+                    'value' => $permission->permission,
+                    'label' => $permission->permission
+                ];
+            }
+            // Menghapus duplikat permission berdasarkan nama
+            $permissions = array_unique($permissions, SORT_REGULAR);
+
+            // Mengirimkan respons JSON menggunakan setJSON()
+            return $this->response->setJSON($permissions);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
 
     private function _save(string $mode): array
     {

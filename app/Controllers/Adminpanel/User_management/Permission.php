@@ -30,6 +30,11 @@ class Permission extends AdminController
             'form' => $this->_form,
             'title' => 'Tambah ' . $this->_form,
         ];
+
+        file_exists(WRITEPATH . "myadmin/group.json") === true ? $datagroup = json_decode(file_get_contents(WRITEPATH . "myadmin/group.json"), true) : $datagroup = null;
+        $data['datagroup'] = is_null($datagroup) === false ? array_keys($datagroup) : null;
+        file_exists(WRITEPATH . "myadmin/permission.json") === true ? $datapermission = json_decode(file_get_contents(WRITEPATH . "myadmin/permission.json"), true) : $datapermission = null;
+        $data['datapermission'] = is_null($datapermission) === false ? array_keys($datapermission) : null;
         echo view('BackPage/AdminPanel/Pages/UserManagement/Permission/PermissionFormView', $data);
     }
 
