@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 02:14 AM
+-- Generation Time: Nov 13, 2024 at 05:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,7 +68,7 @@ CREATE TABLE `auth_identities` (
 --
 
 INSERT INTO `auth_identities` (`id`, `user_id`, `type`, `name`, `secret`, `secret2`, `expires`, `extra`, `force_reset`, `last_used_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'email_password', 'Admin PatiKab', 'patikab@gmail.com', '$2y$12$xKCmucnHA4J/hopckOfUUuJHOFR8dYrm4wLyC2YfXLDH147i4IRuS', NULL, NULL, 0, '2024-10-02 11:20:38', '2023-11-10 09:14:24', '2024-10-02 11:20:38');
+(1, 1, 'email_password', 'Penjaga Server', 'jagaserver@gmail.com', '$2y$12$1Uk83xr1tZXEfDbJTG179.2JHqCjyvbYpIJu7LaAjz6Q5LbBKn9Eq', NULL, NULL, 0, '2024-11-13 11:27:34', '2023-11-10 09:14:24', '2024-11-13 11:27:34');
 
 -- --------------------------------------------------------
 
@@ -92,48 +92,99 @@ CREATE TABLE `auth_logins` (
 --
 
 INSERT INTO `auth_logins` (`id`, `ip_address`, `user_agent`, `id_type`, `identifier`, `user_id`, `date`, `success`) VALUES
-(1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-04 01:01:07', 1),
-(2, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-15 00:48:58', 1),
-(3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-17 09:19:49', 1),
-(4, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-18 01:06:44', 1),
-(5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-18 11:00:23', 1),
-(6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-18 13:32:42', 1),
-(7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-19 00:16:44', 1),
-(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-07 02:05:25', 0),
-(9, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-07 02:06:00', 1),
-(10, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-07 02:08:03', 1),
-(11, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-08 02:28:01', 0),
-(12, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-08 02:28:12', 0),
-(13, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-08 02:28:33', 1),
-(14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:42:50', 0),
-(15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:43:22', 0),
-(16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:43:57', 0),
-(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:46:31', 0),
-(18, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:48:02', 0),
-(19, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:48:46', 0),
-(20, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:49:47', 0),
-(21, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:50:06', 0),
-(22, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:50:26', 0),
-(23, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:51:51', 0),
-(24, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:53:47', 0),
-(25, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:53:54', 0),
-(26, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:54:26', 0),
-(27, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:55:24', 0),
-(28, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:57:07', 0),
-(29, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 00:57:19', 1),
-(30, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 00:58:04', 0),
-(31, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 00:58:17', 1),
-(32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 01:43:16', 0),
-(33, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 01:43:36', 0),
-(34, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 01:52:30', 1),
-(35, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 01:53:05', 0),
-(36, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 01:54:54', 1),
-(37, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 02:07:06', 1),
-(38, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 02:34:01', 1),
-(39, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-09-11 11:55:32', 0),
-(40, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-11 11:56:04', 1),
-(41, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-09-13 11:00:52', 1),
-(42, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-10-02 11:20:38', 1);
+(1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-02 02:18:29', 1),
+(2, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-04 00:37:33', 1),
+(3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-04 01:13:09', 1),
+(4, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-05 00:56:27', 1),
+(5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-06-06 14:55:47', 1),
+(6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-08 10:09:58', 1),
+(7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-08 12:04:59', 1),
+(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-08 12:13:25', 1),
+(9, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-08 15:53:27', 1),
+(10, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-09 08:40:00', 1),
+(11, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-13 13:10:15', 1),
+(12, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-15 10:07:23', 1),
+(13, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-15 12:08:55', 1),
+(14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-15 16:49:26', 1),
+(15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-16 11:47:01', 1),
+(16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-16 14:41:54', 1),
+(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-16 15:35:12', 1),
+(18, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-18 08:19:35', 1),
+(19, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-23 13:30:06', 1),
+(20, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-07-29 08:51:41', 1),
+(21, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-01 14:27:01', 1),
+(22, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-02 07:58:44', 1),
+(23, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-02 21:35:08', 1),
+(24, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-03 14:27:43', 1),
+(25, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-03 22:20:53', 1),
+(26, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-05 10:25:42', 1),
+(27, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-06 07:58:07', 1),
+(28, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-06 10:25:06', 1),
+(29, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-06 15:56:49', 0),
+(30, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-06 15:57:00', 0),
+(31, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-06 15:58:15', 1),
+(32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-06 15:59:40', 1),
+(33, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-07 07:33:49', 1),
+(34, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-07 08:03:18', 1),
+(35, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-07 09:24:51', 1),
+(36, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-07 09:51:43', 1),
+(37, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-07 14:14:42', 1),
+(38, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-08 07:57:31', 1),
+(39, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-12 08:00:51', 1),
+(40, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-12 12:41:51', 1),
+(41, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-12 12:43:19', 1),
+(42, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-13 08:31:21', 1),
+(43, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-13 20:03:33', 1),
+(44, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-14 07:34:52', 1),
+(45, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-14 14:41:37', 1),
+(46, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-15 07:45:56', 1),
+(47, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-26 08:09:46', 1),
+(48, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-26 08:16:24', 1),
+(49, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-26 08:33:17', 1),
+(50, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-26 08:49:28', 1),
+(51, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-26 13:01:21', 1),
+(52, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-27 08:51:55', 1),
+(53, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-28 08:11:51', 1),
+(54, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', 1, '2024-08-28 08:17:45', 1),
+(55, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:33:18', 1),
+(56, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:35:35', 1),
+(57, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 08:56:03', 1),
+(58, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 09:14:27', 1),
+(59, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-28 14:49:58', 0),
+(60, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-28 14:50:03', 1),
+(61, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'patikab@gmail.com', NULL, '2024-08-29 08:46:39', 0),
+(62, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-29 08:46:47', 1),
+(63, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-29 13:24:03', 1),
+(64, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-30 07:55:53', 1),
+(65, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-08-30 10:31:19', 1),
+(66, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-02 08:14:04', 1),
+(67, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-02 11:45:32', 1),
+(68, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-03 08:47:28', 1),
+(69, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-03 14:18:42', 1),
+(70, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 07:38:17', 1),
+(71, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 11:36:49', 1),
+(72, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-04 13:52:58', 1),
+(73, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-05 07:59:06', 1),
+(74, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-05 13:28:49', 1),
+(75, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-06 08:01:03', 1),
+(76, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-06 13:52:53', 1),
+(77, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-09 07:56:26', 1),
+(78, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-09 14:48:49', 1),
+(79, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 08:05:15', 1),
+(80, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 12:57:50', 1),
+(81, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 13:32:51', 1),
+(82, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-10 13:37:57', 1),
+(83, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-11 09:14:14', 1),
+(84, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-12 08:06:55', 1),
+(85, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-13 09:37:21', 1),
+(86, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-13 13:37:09', 1),
+(87, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-17 07:48:52', 1),
+(88, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-09-30 09:38:03', 1),
+(89, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-10-01 08:29:02', 1),
+(90, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-10-01 20:14:53', 1),
+(91, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-10-02 09:17:05', 1),
+(92, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-11-12 09:09:54', 1),
+(93, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 'email_password', 'jagaserver@gmail.com', 1, '2024-11-13 11:27:34', 1);
 
 -- --------------------------------------------------------
 
@@ -465,14 +516,14 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `class`, `key`, `value`, `type`, `context`, `created_at`, `updated_at`) VALUES
-(1, 'Config\\App', 'siteName', 'MyAdmin', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(2, 'Config\\App', 'siteNameAlias', 'MyAdmin', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(3, 'Config\\App', 'siteNameFull', 'MyAdmin', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(4, 'Config\\App', 'siteDescription', 'MyAdmin', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(5, 'Config\\App', 'siteVersion', '1.2', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(6, 'Config\\App', 'siteYear', '2023', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(1, 'Config\\App', 'siteName', 'Pemerintah Kabupaten Pati', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(2, 'Config\\App', 'siteNameAlias', 'Pemerintah Kabupaten Pati', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(3, 'Config\\App', 'siteNameFull', 'Pemerintah Kabupaten Pati', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(4, 'Config\\App', 'siteDescription', 'Pemerintah Kabupaten Pati', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(5, 'Config\\App', 'siteVersion', '3.0', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
+(6, 'Config\\App', 'siteYear', '2024', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
 (7, 'Config\\App', 'siteLogo', '', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58'),
-(8, 'Config\\App', 'siteCopyRight', 'Diskominfo Pati', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58');
+(8, 'Config\\App', 'siteCopyRight', 'Dinas Komunikasi Dan Informatika', 'string', NULL, '2023-11-28 05:23:58', '2023-11-28 05:23:58');
 
 -- --------------------------------------------------------
 
@@ -497,7 +548,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `status`, `status_message`, `active`, `last_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'admin', NULL, NULL, 1, '2024-11-06 14:56:51', '2023-11-10 09:14:24', '2023-11-10 09:14:25', NULL);
+(1, 'admin', NULL, NULL, 1, '2024-11-13 11:28:07', '2023-11-10 09:14:24', '2023-11-10 09:14:25', NULL);
 
 --
 -- Indexes for dumped tables
@@ -623,13 +674,13 @@ ALTER TABLE `auth_groups_users`
 -- AUTO_INCREMENT for table `auth_identities`
 --
 ALTER TABLE `auth_identities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions_users`
@@ -641,12 +692,6 @@ ALTER TABLE `auth_permissions_users`
 -- AUTO_INCREMENT for table `auth_remember_tokens`
 --
 ALTER TABLE `auth_remember_tokens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `auth_token_logins`
---
-ALTER TABLE `auth_token_logins`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -686,18 +731,6 @@ ALTER TABLE `my_admin_users_menu`
   MODIFY `UsersMenuId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- Constraints for dumped tables
 --
 
@@ -706,12 +739,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `auth_groups_users`
   ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `auth_identities`
---
-ALTER TABLE `auth_identities`
-  ADD CONSTRAINT `auth_identities_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `auth_permissions_users`
@@ -724,26 +751,6 @@ ALTER TABLE `auth_permissions_users`
 --
 ALTER TABLE `auth_remember_tokens`
   ADD CONSTRAINT `auth_remember_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `my_admin_group_permission`
---
-ALTER TABLE `my_admin_group_permission`
-  ADD CONSTRAINT `foreignkey_permission_group_id` FOREIGN KEY (`GroupPermissionGroupId`) REFERENCES `my_admin_group` (`GroupId`);
-
---
--- Constraints for table `my_admin_group_users`
---
-ALTER TABLE `my_admin_group_users`
-  ADD CONSTRAINT `foreignkey_group_id` FOREIGN KEY (`GroupUsersGroupId`) REFERENCES `my_admin_group` (`GroupId`),
-  ADD CONSTRAINT `foreignkey_users_id` FOREIGN KEY (`GroupUsersUsersId`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `my_admin_users_menu`
---
-ALTER TABLE `my_admin_users_menu`
-  ADD CONSTRAINT `my_admin_users_menu_ibfk_1` FOREIGN KEY (`UsersMenuUsersId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `my_admin_users_menu_ibfk_2` FOREIGN KEY (`UsersMenuMenuId`) REFERENCES `my_admin_menu` (`MenuId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
