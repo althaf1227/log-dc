@@ -64,7 +64,7 @@ class LogModel extends Model
     public function getLatestVisitors(){
         return $this->db->table('log_masuk')
         ->select('LogNama, LogStatus, LogJamMasuk, LogJamKeluar, LogTanggal')
-        ->orderBy('LogJamMasuk', 'DESC')
+        ->orderBy('LogInsert', 'DESC')
         ->limit(3)
         ->get()
         ->getResultArray(); 
