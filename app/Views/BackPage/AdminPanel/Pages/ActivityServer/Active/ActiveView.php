@@ -38,8 +38,7 @@
                                     <?php
                                     if (isset($DataActive)) {
                                         $no = 1;
-                                        foreach ($DataActive as $row):
-                                    ?><?php
+                                        foreach ($DataActive as $row): ?><?php
                                             $statusClass = '';
                                             switch ($row['LogStatus']) {
                                                 case 'request':

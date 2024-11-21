@@ -115,124 +115,50 @@ class active extends AdminController
 
 
         if ($mode === "edit") {
-
-            if (
-                !$this->validate([
-                    // 'SetNama' => [
-                    //     'label' => 'Nama',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-                    // 'SetNomorHp' => [
-                    //     'label' => 'Nomor Handphone',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-                    // 'SetEmail' => [
-                    //     'label' => 'Email',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-                    // 'SetInstansi' => [
-                    //     'label' => 'Instansi',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-                    // 'SetJamMasuk' => [
-                    //     'label' => 'Jam Masuk',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-                    'SetCatatan' => [
-                        'label' => 'catatan',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => '{field} harus diisi'
-                        ]
-                    ],
-                    // 'SetKeperluan' => [
-                    //     'label' => 'Keperluan',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ],
-
-                    // 'SetTanggal' => [
-                    //     'label' => 'Tanggal',
-                    //     'rules' => 'required',
-                    //     'errors' => [
-                    //         'required' => '{field} harus diisi'
-                    //     ]
-                    // ]
-                ])
-            ) {
-                $msg = '<strong>Gagal</strong>! ' . $this->validator->listErrors() . '';
-                return array('success' => false, 'status_code' => 0, 'redirect_to' => $urlprev, 'message' => $msg);
-            } else {
-                $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
-                $jamKeluar = $request->getPost('SetJamkeluar');
-                $foto =$request->getPOst('imageData');
-
-                $filePath = '';
-                if ($foto){
-                    $foto = str_replace('data:image/png;base64,', '', $foto);
-                    $foto = str_replace(' ', '+', $foto);
-                    $data = base64_decode($foto);
-
-                    $filename = uniqid() . '.png';
-                    $filePath = 'uploads/foto/' . $filename; // Path untuk menyimpan gambar
-
-                    file_put_contents($filePath, $data);
-                }
-
-                $status = 'request';
-
-                if ($persetujuan == 1) {
-                    $status = 'in process';
-                }
-                if (!empty($jamKeluar)) {
-                    $status = 'completed';
-                }
-
-                $catatan = $request->getVar('SetCatatan');
-
-
-                $dataset = [
-                    // 'LogNama'        => trim($request->getPost('SetNama')),
-                    // 'LogNomorHp'     => trim($request->getPost('SetNomorHp')),
-                    // 'LogEmail'       => trim($request->getPost('SetEmail')),
-                    // 'LogInstansi'    => trim($request->getPost('SetInstansi')),
-                    // 'LogJamasuk'     => trim($request->getPost('SetJamMasuk')),
-                    // 'LogKeperluan'   => htmlspecialchars_decode($request->getPost('SetKeperluan')),
-                    'LogCatatan'     => $catatan,
-                    'LogPersetujuan' => $persetujuan,
-                    // 'LogTanggal'     => trim($request->getPost('SetTanggal')),
-                    'LogStatus'      => $status,
-                    'LogGambar'      => $filePath
-                ];
-
-                if (!empty($jamKeluar)) {
-                    $dataset['LogJamKeluar'] = $jamKeluar;
-                }
-
-                // dd($dataset);
-                $Logmodel = model('LogModel');
-                $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
-
-
-                return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
+            $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
+            $jamKeluar = $request->getPost('SetJamkeluar');
+            $foto = $request->getPost('imageData');
+        
+            $filePath = '';
+            if ($foto) {
+                $foto = str_replace('data:image/png;base64,', '', $foto);
+                $foto = str_replace(' ', '+', $foto);
+                $data = base64_decode($foto);
+        
+                $filename = uniqid() . '.png';
+                $filePath = 'uploads/foto/' . $filename; // Path untuk menyimpan gambar
+        
+                file_put_contents($filePath, $data);
             }
+        
+            $status = 'request';
+        
+            if ($persetujuan == 1) {
+                $status = 'in process';
+            }
+            if (!empty($jamKeluar)) {
+                $status = 'completed';
+            }
+        
+            $catatan = $request->getVar('SetCatatan');
+        
+            $dataset = [
+                'LogCatatan'     => $catatan,
+                'LogPersetujuan' => $persetujuan,
+                'LogStatus'      => $status,
+                'LogGambar'      => $filePath
+            ];
+        
+            if (!empty($jamKeluar)) {
+                $dataset['LogJamKeluar'] = $jamKeluar;
+            }
+        
+            // dd($dataset);
+            $Logmodel = model('LogModel');
+            $Logmodel->update($this->request->getPost('Log_Id'), $dataset);
+        
+            return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . $this->_Url_Ini);
         }
+        
     }
 }
