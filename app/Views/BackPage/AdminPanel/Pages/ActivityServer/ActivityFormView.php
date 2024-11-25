@@ -107,7 +107,7 @@
                                             <div class="invalid-feedback">Masukan Jam masuk.</div>
                                         </div>
                                     </div> -->
-                                    <div class="mb-3 row">
+                                    <!-- <div class="mb-3 row">
                                         <label for="SetGambar" class="col-sm-3 col-form-label">Silahkan Ambil Foto<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <div class="form-group">
@@ -121,18 +121,18 @@
                                                         class="error-message text-danger"></span>
                                                     </div>
                                                     <div id="preview-gambar">
-                                                        <?php if (!empty($Log)): ?>
-                                                            <div class="thumbnail" data-name="<?= $Log['LogGambar'] ?>">
+                                                        </?php if (!empty($Log)): ?>
+                                                            <div class="thumbnail" data-name="</?= $Log['LogGambar'] ?>">
                                                                 <canvas id="canvas" class="d-none" width="300" height="140"></canvas>
                                                                 <img class="mb-4" alt="tangkapan foto" id="photo" width="180" height="140">
                                                             </div>
-                                                        <?php endif; ?>
+                                                        </?php endif; ?>
                                                     </div>
                                                     <input type="hidden" id="imageData" name="imageData">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
@@ -281,37 +281,6 @@
 <?php echo $this->section('content_js_custom'); ?>
 
 <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const photo = document.getElementById('photo');
-    const imageData =document.getElementById('imageData');
-    const context = canvas.getContext('2d');
-
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            video.srcObject = stream;
-        })
-        .catch(err => {
-            console.error("Error: " + err);
-        }); 
-
-    document.getElementById('capture').addEventListener('click', () => {
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const data = canvas.toDataURL('image/png');
-        photo.src = data;
-        imageData.value = data;
-    });
-    $(document).ready(function() {
-
-        $("#btn_simpan").on("click", function(e) {
-            var form = $("#form_edit")[0];
-            if (form.checkValidity()) {
-                $("#btn_simpan").prop("disabled", true);
-                form.submit();
-            }
-
-        });
-    });
 
     tinymce.init({
         selector: 'textarea#mytextarea',
