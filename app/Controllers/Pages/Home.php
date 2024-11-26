@@ -115,22 +115,31 @@ class Home extends BaseController{
             } else {
                 $persetujuan = $request->getPost('SetPersetujuan') ? 1 : 0;
                 $foto = $request->getPost('imageData');
-        
+                
                 $filePath = '';
                 if ($foto) {
                     $foto = str_replace('data:image/png;base64,', '', $foto);
                     $foto = str_replace(' ', '+', $foto);
                     $data = base64_decode($foto);
-            
-                    $filename = uniqid() . '.png';
-                    $filePath = 'uploads/foto/' . $filename; // Path untuk menyimpan gambar
-            
+                
+                    // Menghasilkan nama file acak
+                    $randomGambarName = uniqid() . '.png';
+                    $uploadPath = 'uploads/foto/'; // Path untuk menyimpan gambar secara fisik
+                
+                    // Memastikan direktori ada
+                    if (!is_dir($uploadPath)) {
+                        mkdir($uploadPath, 0755, true);
+                    }
+                
+                    // Menyimpan gambar ke direktori yang ditentukan
+                    $filePath = $uploadPath . $randomGambarName;
                     file_put_contents($filePath, $data);
                 }
-
+                
+                // Mengambil jam dan tanggal saat ini
                 $JamMasuk = date('H:i:s');
                 $tanggal = date('Y-m-d');
-
+                
                 $dataset = [
                     'LogNama' => trim($request->getPost('SetNama')),
                     'LogNomorHp' => trim($request->getPost('SetNomorHp')),
@@ -140,13 +149,14 @@ class Home extends BaseController{
                     'LogJamMasuk' => $JamMasuk,
                     'LogTanggal' => $tanggal,
                     'LogPersetujuan' => $persetujuan,
-                    'LogGambar'      => $filePath,
+                    'LogGambar' => $randomGambarName, // Menyimpan nama gambar tanpa direktori
                     'LogStatus' => 'Request',
                 ];
                 
                 $LogModel = model('LogModel');
                 $LogModel->save($dataset);
-                return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . 'pages\home');
+                return array('success' => true, 'status_code' => 1, 'redirect_to' => site_url() . 'pages/home');
+                
             }
         }        
     }

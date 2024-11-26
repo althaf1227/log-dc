@@ -43,71 +43,6 @@
                                             value="<?php echo esc($Log['LogId']); ?>" required />
                                     <?php } ?>
                                     <!-- <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetNama">Nama Pengunjung<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="SetNama"
-                                                name="SetNama" value="</?php if (is_null(old('SetNama')) == false) {
-                                                                            echo old('SetNama');
-                                                                        } else {
-                                                                            if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                                echo esc($Log['LogNama']);
-                                                                        } ?>" placeholder="Masukan Nama.." required />
-                                            <div class="invalid-feedback">Masukan Nama.</div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetNomorHp">Nomor Hp Pengunjung<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="SetNomorHp"
-                                                name="SetNomorHp" value="</?php if (is_null(old('SetNomorHp')) == false) {
-                                                                                echo old('SetNomorHp');
-                                                                            } else {
-                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                                    echo esc($Log['LogNomorHp']);
-                                                                            } ?>" placeholder="Masukan Nomor Handphone.." required />
-                                            <div class="invalid-feedback">Masukan Nomor Handphone.</div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetEmail">Email Pengunjung<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="SetEmail"
-                                                name="SetEmail" value="</?php if (is_null(old('SetEmail')) == false) {
-                                                                            echo old('SetEmail');
-                                                                        } else {
-                                                                            if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                                echo esc($Log['LogEmail']);
-                                                                        } ?>" placeholder="Masukan Email.." required />
-                                            <div class="invalid-feedback">Masukan Email.</div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetInstansi">Instansi Pengunjung<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="SetInstansi"
-                                                name="SetInstansi" value="</?php if (is_null(old('SetInstansi')) == false) {
-                                                                                echo old('SetInstansi');
-                                                                            } else {
-                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                                    echo esc($Log['LogInstansi']);
-                                                                            } ?>" placeholder="Masukan Instansi.." required />
-                                            <div class="invalid-feedback">Masukan Instansi.</div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label" for="SetJamMasuk">Jam Masuk Pengunjung<span class="text-danger">*</span></label>
-                                        <div class="col-sm-9">
-                                            <input type="time" class="form-control" id="SetJamMasuk"
-                                                name="SetJamMasuk" value="</?php if (is_null(old('SetJamMasuk')) == false) {
-                                                                                echo old('SetJamMasuk');
-                                                                            } else {
-                                                                                if (isset($operation) && isset($Log) && $operation == "edit")
-                                                                                    echo esc($Log['LogJamMasuk']);
-                                                                            } ?>" placeholder="Masukan Jam masuk .." required />
-                                            <div class="invalid-feedback">Masukan Jam masuk.</div>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="mb-3 row">
                                         <label for="SetGambar" class="col-sm-3 col-form-label">Silahkan Ambil Foto<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
                                             <div class="form-group">
@@ -133,6 +68,41 @@
                                             </div>
                                         </div>
                                     </div> -->
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label" for="SetLogGambar">Foto Pengunjung<span class="text-danger">*</span></label>
+                                        <div class="col-sm-9">
+                                            <div class="form-group">
+                                                <div id="preview-gambar">
+                                                    <?php if (!empty($Log)):
+                                                        $file_extension = pathinfo($Log['LogGambar'], PATHINFO_EXTENSION);
+                                                        if (in_array($file_extension, ['jpg', 'jpeg', 'png'])): ?>
+                                                            <div class="thumbnail"
+                                                                data-name="<?= $Log['LogGambar'] ?>">
+                                                                <img src="<?= base_url("uploads/Foto/") . $Log['LogGambar'] ?>"
+                                                                    alt="Thumbnail">
+                                                                <button class="remove-btn" onclick="removeElement(this)"><i
+                                                                        class="fas fa-times"></i></button>
+                                                            </div>
+                                                            <input type="hidden" name="existingFiles"
+                                                                value="<?= $Log['LogId'] ?>"
+                                                                data-name="<?= $Log['LogGambar'] ?>">
+
+                                                        <?php else: ?>
+                                                            <div class="thumbnail"
+                                                                data-name="<?= $Log['LogGambar'] ?>">
+                                                                <span><?= $Log['LogGambar'] ?></span>
+                                                                <button class="remove-btn" onclick="removeElement(this)"><i
+                                                                        class="fas fa-times"></i></button>
+                                                            </div>
+                                                            <input type="hidden" name="existingFiles"
+                                                                value="<?= $Log['LogId'] ?>"
+                                                                data-name="<?= $Log['LogGambar'] ?>">
+                                                        <?php endif;
+                                                    endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label" for="SetPersetujuan">Berikan Persetujuan<span class="text-danger">*</span></label>
                                         <div class="col-sm-9">
