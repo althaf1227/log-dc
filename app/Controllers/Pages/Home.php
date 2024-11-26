@@ -21,21 +21,6 @@ class Home extends BaseController{
         echo view('FrontPage/Userpanel/Pages/FromIsiView2', $data);
     }
 
-    public function getAdd()
-    {
-
-        // $data['Url_Ini'] = $this->_Url_Ini;
-        $data['title'] = 'Tambah ' . $this->_form;
-        // $data['SysVar'] = $this->SysVar;
-        $data['SysForm'] = [
-            'form' => $this->_form,
-            'title' => 'Tambah ' . $this->_form,
-        ];
-        $data['operation'] = 'add';
-        $data['sejarah'] = null;
-        // $data['sub_dimensi_id'] = null;
-        echo view('FrontPage/Userpanel/Pages/FromIsiView', $data);
-    }
 
     public function postAdd()
     {
@@ -47,7 +32,7 @@ class Home extends BaseController{
         }
         if (isset($save['success']) && $save['success'] === true) {
             if ($save['status_code'] === 1) {
-                $msg = '<strong>Simpan Berhasil</strong>! Data berhasil ditambahkan';
+                $msg = '<strong>Simpan Berhasil</strong>! Silahkan tunggu persetujuan dari penjaga';
                 session()->setFlashdata('notif', '<div class="alert alert-success solid"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>' . $msg . '</div>');
                 return redirect()->to($save['redirect_to']);
             } else if ($save['status_code'] === 2) {
